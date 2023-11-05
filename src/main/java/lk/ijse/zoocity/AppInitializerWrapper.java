@@ -1,4 +1,4 @@
-package lk.ijse.zoocity.model;
+package lk.ijse.zoocity;
 
 public class AppInitializerWrapper {
 }

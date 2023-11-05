@@ -4,16 +4,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class dbConnection {
+public class DbConnection {
     private Connection con;
-    private static dbConnection dbConnection;
+    private static DbConnection dbConnection;
 
-    public dbConnection() throws SQLException {
+    public DbConnection() throws SQLException {
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ZooCity","root","Ijse@1234");
     }
-    public static dbConnection getInstance() throws SQLException {
+    public static DbConnection getInstance() throws SQLException {
         if (dbConnection == null){
-            return dbConnection = new dbConnection();
+            return dbConnection = new DbConnection();
         }
         else
             return dbConnection;
