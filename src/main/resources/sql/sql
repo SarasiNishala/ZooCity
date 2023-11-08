@@ -64,7 +64,7 @@ CREATE TABLE CageControl(
 );
 
 CREATE TABLE Animals(
-	ANimalTg VARCHAR(20) PRIMARY KEY,
+	AnimalTg VARCHAR(20) PRIMARY KEY,
 	Category VARCHAR(15),
 	AdminId VARCHAR(6),
 	CageId VARCHAR(6),
@@ -81,12 +81,12 @@ CREATE TABLE Food(
 );
 
 CREATE TABLE AnimalFoods(
-	ANimalTg VARCHAR(20),
-	FoodId VARCHAR(6),
+	AnimalTg VARCHAR (20),
+	FoodId VARCHAR (6),
 	Date DATE,
 	Time TIME,
 	CONSTRAINT FOREIGN KEY (ANimalTg) REFERENCES Animals(ANimalTg) on Delete Cascade on Update Cascade,
-	CONSTRAINT FOREIGN KEY (FoodId) REFERENCES AnimalFoods(FoodId) on Delete Cascade on Update Cascade
+	CONSTRAINT FOREIGN KEY (FoodId) REFERENCES Food(FoodId) on Delete Cascade on Update Cascade
 );
 
 CREATE TABLE Medicine(
@@ -114,8 +114,10 @@ DESC CageControl;
 DESC Cages;
 DESC Employee;
 DESC Food;
-MDESC edicine;
+DESC Medicine;
 DESC Salary;
 DESC Schedule;
 DESC Slip;
 DESC Ticket;
+
+INSERT INTO Admin VALUES ('A001','Nishala','@1234');
