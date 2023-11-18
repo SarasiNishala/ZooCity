@@ -1,19 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane prefHeight="865.0" prefWidth="1199.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DashBoard">
+<AnchorPane prefHeight="865.0" prefWidth="1199.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardController">
    <children>
       <ImageView fitHeight="865.0" fitWidth="1219.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/new/Dashboard.png" />
+            <Image url="@../Assets/Dashboard.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="93.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8bc34a" height="35.0" layoutX="90.0" layoutY="229.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#767676" height="34.0" layoutX="90.0" layoutY="739.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="95.0" layoutY="743.0" onMouseClicked="#logOutClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/logout.png" />
+         </image>
+      </ImageView>
+      <Group layoutX="90.0" layoutY="201.0">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/select.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/select.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6380" height="34.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="68.0" onMouseClicked="#employeeOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/employee.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f19c2d" height="34.0" layoutY="128.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="132.0" onMouseClicked="#animalOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/animal.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cc77ff" height="34.0" layoutY="192.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="196.0" onMouseClicked="#cageOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/cage.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6a64d4" height="34.0" layoutY="256.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="260.0" onMouseClicked="#medicineOnClic" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/medicine.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3ec278" height="34.0" layoutY="320.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="324.0" onMouseDragged="#foodOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/food.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ec8f5e" height="34.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="388.0" onMouseClicked="#ticketOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/tickets.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8bc34a" height="34.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="4.0" onMouseClicked="#homeOnClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Assets/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <TextField layoutX="167.0" layoutY="88.0" prefHeight="24.0" prefWidth="210.0" promptText="Search" style="-fx-background-color: #EFEDEC; -fx-background-radius: 5;" />
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="350.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/search.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="152.0" layoutY="125.0" prefHeight="660.0" prefWidth="992.0" />
    </children>
 </AnchorPane>
