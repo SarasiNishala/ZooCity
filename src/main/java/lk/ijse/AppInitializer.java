@@ -13,10 +13,9 @@ public class AppInitializer extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/LoginForm.fxml"));
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/DashBoard.fxml"));
         Scene scene = new Scene(rootNode);
 
-        stage.setTitle("login");
         stage.setScene(scene);
         stage.centerOnScreen();
 

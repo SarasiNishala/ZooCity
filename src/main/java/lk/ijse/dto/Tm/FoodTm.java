@@ -1,4 +1,5 @@
 package lk.ijse.dto.Tm;
+
 import javafx.scene.control.Button;
 
 import lombok.AllArgsConstructor;
@@ -8,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class AnimalTm {
-    private  String animalTg;
-    private  String category;
-    private  String animalType;
-    private  String cageId;
-    private  String AdminId;
+public class FoodTm {
+    private String FoodId;
+    private String Name;
+    private double Price;
+    private int Qty;
+    private String StockStatus;
     private Button btn;
 }

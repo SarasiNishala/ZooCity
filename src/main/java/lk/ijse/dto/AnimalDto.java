@@ -9,7 +9,7 @@ public class AnimalDto {
     private  String category;
     private  String animalType;
     private  String cageId;
-    private  String status;
+    private  String AdminId;
 
 
 }

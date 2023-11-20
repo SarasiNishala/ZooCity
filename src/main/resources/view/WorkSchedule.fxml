@@ -21,10 +21,10 @@
       </ImageView>
       <TableView layoutX="96.0" layoutY="192.0" prefHeight="461.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
          <columns>
-            <TableColumn prefWidth="157.0" style="-fx-background-color: #999999;" text="Schedule Id" />
-            <TableColumn prefWidth="234.0" style="-fx-background-color: #999999;" text="Hours" />
-            <TableColumn minWidth="0.0" prefWidth="225.0" style="-fx-background-color: #999999;" text="Date" />
-            <TableColumn prefWidth="205.0" style="-fx-background-color: #999999;" text="Action" />
+            <TableColumn prefWidth="157.0" text="Schedule Id" />
+            <TableColumn prefWidth="234.0" text="Hours" />
+            <TableColumn minWidth="0.0" prefWidth="225.0" text="Date" />
+            <TableColumn prefWidth="205.0" text="Action" />
          </columns>
       </TableView>
       <Text layoutX="94.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule Id">

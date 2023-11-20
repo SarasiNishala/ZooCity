@@ -23,37 +23,37 @@
       </ImageView>
       <Group layoutX="90.0" layoutY="201.0">
          <children>
-            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ticketRec" fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/select.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="foodRec" fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/select.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mediRec" fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/select.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="cageRec" fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/select.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="aniRec" fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/select.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="empRec" fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/select.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="homeRec" fitHeight="42.0" fitWidth="70.0" layoutX="-14.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/select.png" />
                </image>
@@ -83,7 +83,7 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3ec278" height="34.0" layoutY="320.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="34.0" />
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="324.0" onMouseDragged="#foodOnClick" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="5.0" layoutY="324.0" onMouseClicked="#foodOnClick" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/food.png" />
                </image>
@@ -108,6 +108,6 @@
             <Image url="@../Assets/search.png" />
          </image>
       </ImageView>
-      <Pane layoutX="152.0" layoutY="125.0" prefHeight="660.0" prefWidth="992.0" />
+      <Pane fx:id="root" layoutX="152.0" layoutY="125.0" prefHeight="660.0" prefWidth="992.0" />
    </children>
 </AnchorPane>

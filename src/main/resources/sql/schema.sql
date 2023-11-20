@@ -1,3 +1,5 @@
+DROP DATABASE ZooCity;
+
 CREATE DATABASE ZooCity;
 
 USE ZooCity;
@@ -11,7 +13,10 @@ CREATE TABLE Admin(
 CREATE TABLE Ticket(
 	TicketNo VARCHAR(6) PRIMARY KEY,
 	TicketType VARCHAR(30),
-	Price DOUBLE
+	Price DOUBLE,
+	Date DATE,
+	AdminId VARCHAR(6),
+	CONSTRAINT FOREIGN KEY (AdminId) REFERENCES Admin(AdminId) on Delete Cascade on Update Cascade
 );
 
 CREATE TABLE Schedule(
@@ -23,19 +28,19 @@ CREATE TABLE Schedule(
 CREATE TABLE Employee(
 	EmpId VARCHAR(6)PRIMARY KEY,
 	EmpName VARCHAR(25),
-	Category VARCHAR(15),
 	Address VARCHAR(30),
 	Contact INT,
-	AdminId VARCHAR(6),
+	Category VARCHAR(15),
 	ScheduleId VARCHAR(6),
+	AdminId VARCHAR(6),
 	CONSTRAINT FOREIGN KEY (AdminId) REFERENCES Admin(AdminId) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (ScheduleId) REFERENCES Schedule(ScheduleId) on Delete Cascade on Update Cascade
 );
 
 CREATE TABLE Salary(
 	SalaryId VARCHAR(6) PRIMARY KEY,
-	Payment INT,
 	EmpId VARCHAR(6),
+	Payment INT,
 	CONSTRAINT FOREIGN KEY (EmpId) REFERENCES Employee(EmpId) on Delete Cascade on Update Cascade
 );
 
@@ -55,10 +60,11 @@ CREATE TABLE Cages(
 );
 
 CREATE TABLE CageControl(
-	EmpId VARCHAR(6) PRIMARY KEY,
+	EmpId VARCHAR(6) ,
 	CageId VARCHAR(6),
 	Date DATE,
 	Time TIME,
+	Status VARCHAR (30),
 	CONSTRAINT FOREIGN KEY (EmpId) REFERENCES Employee(EmpId) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (CageId) REFERENCES Cages(CageId) on Delete Cascade on Update Cascade
 );
@@ -66,9 +72,9 @@ CREATE TABLE CageControl(
 CREATE TABLE Animals(
 	AnimalTg VARCHAR(20) PRIMARY KEY,
 	Category VARCHAR(15),
-	AdminId VARCHAR(6),
+	AnimalType VARCHAR(35),
 	CageId VARCHAR(6),
-	Status VARCHAR(10),
+	AdminId VARCHAR(6),
 	CONSTRAINT FOREIGN KEY (AdminId) REFERENCES Admin(AdminId) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (CageId) REFERENCES Cages(CageId) on Delete Cascade on Update Cascade
 );
@@ -76,7 +82,8 @@ CREATE TABLE Animals(
 CREATE TABLE Food(
 	FoodId VARCHAR(6) PRIMARY KEY,
 	Name VARCHAR(30),
-	Price INT,
+	Price DOUBLE,
+	Qty INT,
 	StockStatus VARCHAR(10)
 );
 
@@ -85,6 +92,8 @@ CREATE TABLE AnimalFoods(
 	FoodId VARCHAR (6),
 	Date DATE,
 	Time TIME,
+	Qty INT,
+	Status VARCHAR(10),
 	CONSTRAINT FOREIGN KEY (ANimalTg) REFERENCES Animals(ANimalTg) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (FoodId) REFERENCES Food(FoodId) on Delete Cascade on Update Cascade
 );
@@ -92,7 +101,8 @@ CREATE TABLE AnimalFoods(
 CREATE TABLE Medicine(
 	MediId VARCHAR(6) PRIMARY KEY,
 	Name VARCHAR(30),
-	Price INT,
+	Price DOUBLE,
+	Qty INT,
 	StockStatus VARCHAR(10)
 );
 
@@ -101,6 +111,8 @@ CREATE TABLE AnimalMedicine(
 	MediId VARCHAR(6),
 	Date DATE,
 	Time TIME,
+	Qty INT,
+	Status VARCHAR(10),
 	CONSTRAINT FOREIGN KEY (ANimalTg) REFERENCES Animals(ANimalTg) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (MediId) REFERENCES Medicine(MediId) on Delete Cascade on Update Cascade
 );

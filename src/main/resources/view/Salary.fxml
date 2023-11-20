@@ -18,10 +18,10 @@
    <children>
       <TableView layoutX="86.0" layoutY="196.0" prefHeight="461.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
          <columns>
-            <TableColumn prefWidth="157.0" style="-fx-background-color: #999999;" text="Salary Id" />
-            <TableColumn prefWidth="234.0" style="-fx-background-color: #999999;" text="Employee Id" />
-            <TableColumn minWidth="0.0" prefWidth="225.0" style="-fx-background-color: #999999;" text="Payment" />
-            <TableColumn prefWidth="205.0" style="-fx-background-color: #999999;" text="Action" />
+            <TableColumn prefWidth="157.0" text="Salary Id" />
+            <TableColumn prefWidth="234.0" text="Employee Id" />
+            <TableColumn minWidth="0.0" prefWidth="225.0" text="Payment" />
+            <TableColumn prefWidth="205.0" text="Action" />
          </columns>
       </TableView>
       <Text layoutX="86.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary Id">

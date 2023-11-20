@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CageController {
-    public TextField txtCageId;
     public ComboBox <?>txtCageType;
+
     public AnchorPane root;
 
     public void btnSaveOnAction(ActionEvent actionEvent) {

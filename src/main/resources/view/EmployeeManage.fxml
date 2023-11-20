@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +14,7 @@
 
 <AnchorPane fx:id="root" prefHeight="660.0" prefWidth="992.0" style="-fx-background-color: teanspranet;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddEmployeeController">
    <children>
-      <TextField fx:id="txtEmpId" layoutX="32.0" layoutY="47.0" prefHeight="35.0" prefWidth="180.0" promptText="Enter Your Id" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <TextField fx:id="txtEmpId" layoutX="32.0" layoutY="47.0" onAction="#txtSearchOnAction" prefHeight="35.0" prefWidth="180.0" promptText="Enter Your Id" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.7" width="0.0">
                <color>
@@ -49,39 +50,23 @@
             </DropShadow>
          </effect></TextField>
       <Text layoutX="34.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number" />
-      <Text layoutX="248.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
-      <TextField fx:id="txtCategory" layoutX="243.0" layoutY="148.0" prefHeight="35.0" prefWidth="180.0" promptText="Enter Category" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
-         <effect>
-            <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.38" width="0.0">
-               <color>
-                  <Color opacity="0.23000000417232513" />
-               </color></DropShadow>
-         </effect></TextField>
+      <Text layoutX="248.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
       <Text layoutX="457.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Shift Id" />
-      <TextField fx:id="txtShiftId" layoutX="452.0" layoutY="147.0" prefHeight="35.0" prefWidth="180.0" promptText="Enter Your Shift Id" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
-         <effect>
-            <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" width="0.0">
-               <color>
-                  <Color opacity="0.23000000417232513" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
       <Button layoutX="670.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #88ABDF; -fx-background-radius: 5;" text="Save" />
       <Button layoutX="670.0" layoutY="84.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #7ACC9E; -fx-background-radius: 5;" text="Edit" />
       <Button layoutX="670.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #DF8888; -fx-background-radius: 5;" text="Clear" />
       <Button layoutX="748.0" layoutY="623.0" mnemonicParsing="false" onAction="#btnSalaryOnAction" prefHeight="30.0" style="-fx-background-color: #DEDF88; -fx-background-radius: 5;" text="Salary" />
       <Button layoutX="844.0" layoutY="623.0" mnemonicParsing="false" onAction="#btnWorkScheduleOnAction" prefHeight="30.0" style="-fx-background-color: #E7A569; -fx-background-radius: 5;" text="Work Schedule" />
-      <TableView layoutX="31.0" layoutY="212.0" prefHeight="404.0" prefWidth="929.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
+      <TableView fx:id="tblEmployee" layoutX="31.0" layoutY="212.0" prefHeight="404.0" prefWidth="929.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
         <columns>
-          <TableColumn style="-fx-background-color: #999999;" text="Emp Id" />
-          <TableColumn prefWidth="107.0" style="-fx-background-color: #999999;" text="Emp Name" />
-            <TableColumn prefWidth="103.0" style="-fx-background-color: #999999;" text="Password" />
-            <TableColumn prefWidth="107.0" style="-fx-background-color: #999999;" text="Address" />
-            <TableColumn prefWidth="124.0" style="-fx-background-color: #999999;" text="Contact" />
-            <TableColumn prefWidth="128.0" style="-fx-background-color: #999999;" text="Category" />
-            <TableColumn prefWidth="96.0" style="-fx-background-color: #999999;" text="Shift Id" />
-            <TableColumn prefWidth="100.0" style="-fx-background-color: #999999;" text="Admin Id" />
-            <TableColumn prefWidth="83.0" style="-fx-background-color: #999999;" text="Action" />
+          <TableColumn fx:id="colEmpId" prefWidth="94.0" text="Emp Id" />
+          <TableColumn fx:id="colEmpName" prefWidth="106.0" text="Emp Name" />
+            <TableColumn fx:id="colEmpAddress" prefWidth="115.0" text="Address" />
+            <TableColumn fx:id="colEmpTel" prefWidth="121.0" text="Contact" />
+            <TableColumn fx:id="colCategory" prefWidth="137.0" text="Category" />
+            <TableColumn fx:id="colShiftId" prefWidth="118.0" text="Shift Id" />
+            <TableColumn fx:id="colAdminId" prefWidth="106.0" text="Admin Id" />
+            <TableColumn fx:id="colAction" prefWidth="131.0" text="Action" />
         </columns>
       </TableView>
       <ImageView fitHeight="212.0" fitWidth="238.0" layoutX="763.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
@@ -89,5 +74,23 @@
             <Image url="@../Assets/employeeImage.png" />
          </image>
       </ImageView>
+      <ComboBox fx:id="cmbCategory" layoutX="241.0" layoutY="150.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-radius: 5; -fx-background-color: #F3F0F0;">
+         <effect>
+            <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.28" width="0.0">
+               <color>
+                  <Color opacity="0.23000000417232513" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ComboBox>
+      <ComboBox fx:id="cmbShiftId" layoutX="459.0" layoutY="150.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-radius: 5; -fx-background-color: #F3F0F0;">
+         <effect>
+            <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.28" width="0.0">
+               <color>
+                  <Color opacity="0.23000000417232513" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ComboBox>
    </children>
 </AnchorPane>
