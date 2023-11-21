@@ -148,7 +148,7 @@ public class AddAnimalsController {
     }
 
     public  void setComboBox(){
-        cmbCategory.getItems().add("Mamals");
+        cmbCategory.getItems().add("Mammals");
         cmbCategory.getItems().add("Birds");
         cmbCategory.getItems().add("Fish");
 
@@ -248,7 +248,7 @@ public class AddAnimalsController {
         try {
             boolean isDeleted = AnimalModel.deleteAnimal(code);
             if(isDeleted)
-                new Alert(Alert.AlertType.CONFIRMATION, "item deleted!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "cage deleted!").show();
         } catch (SQLException ex) {
             new Alert(Alert.AlertType.ERROR, ex.getMessage()).show();
         }

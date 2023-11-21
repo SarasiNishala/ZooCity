@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.AnimalsFoodDto;
+import lk.ijse.dto.CageManageFormDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,60 +11,58 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimalsFoodModel {
-    public static List<AnimalsFoodDto> getAllAnimal() throws SQLException {
+public class CageManageFormModel {
+
+    public static List<CageManageFormDto> getAllEmployee() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM Animals";
+        String sql = "SELECT * FROM CageControl";
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
-        List<AnimalsFoodDto> aniList = new ArrayList<>();
+        List<CageManageFormDto> aniList = new ArrayList<>();
 
         while (resultSet.next()) {
-            aniList.add(new AnimalsFoodDto(
-                    resultSet.getString("AnimalTg"),
-                    resultSet.getString("FoodId"),
+            aniList.add(new CageManageFormDto(
+                    resultSet.getString("EmpId"),
+                    resultSet.getString("CageId"),
                     resultSet.getDate("Date").toLocalDate(),
                     resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getInt("Qty"),
                     resultSet.getString("Status")
             ));
         }
         return aniList;
     }
 
-    public static List<AnimalsFoodDto> getAll() throws SQLException {
+    public static List<CageManageFormDto> getAllCages() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM AnimalFoods";
+        String sql = "SELECT * FROM CageControl";
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
-        List<AnimalsFoodDto> aniList = new ArrayList<>();
+        List<CageManageFormDto> aniList = new ArrayList<>();
 
         while (resultSet.next()) {
-            aniList.add(new AnimalsFoodDto(
-                    resultSet.getString("AnimalTg"),
-                    resultSet.getString("FoodId"),
+            aniList.add(new CageManageFormDto(
+                    resultSet.getString("EmpId"),
+                    resultSet.getString("CageId"),
                     resultSet.getDate("Date").toLocalDate(),
                     resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getInt("Qty"),
                     resultSet.getString("Status")
             ));
         }
         return aniList;
     }
 
-    public boolean saveAnimalFood(AnimalsFoodDto dto) throws SQLException {
+    public boolean saveCageForm(CageManageFormDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO AnimalFoods VALUES(?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO CageControl VALUES(?, ?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setString(1, dto.getAnimalTg());
-        pstm.setString(2, dto.getFoodId());
+        pstm.setString(1, dto.getEmpId());
+        pstm.setString(2, dto.getCageId());
         pstm.setString(3, String.valueOf(dto.getDate()));
         pstm.setString(4, String.valueOf(dto.getTime()));
-        pstm.setString(5, String.valueOf(dto.getQty()));
         pstm.setString(6,dto.getStatus());
 
         boolean isSaved = pstm.executeUpdate() > 0;
@@ -71,28 +70,26 @@ public class AnimalsFoodModel {
         return isSaved;
     }
 
-    public boolean editANimalsFood(AnimalsFoodDto dto) throws SQLException {
-        boolean result = false;
+    public boolean editCageControlForm(CageManageFormDto dto) throws SQLException {
         Connection connection = null;
         connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE AnimalFood SET FoodId = ?, Date = ?, Time = ?, Qty = ?, Status = ? WHERE AnimalTg = ?";
+        String sql = "UPDATE CageControl SET CageId = ?, Date = ?, Time = ?, Status = ? WHERE EmpId = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setString(1, dto.getFoodId());
+        pstm.setString(1, dto.getCageId());
         pstm.setString(2, String.valueOf(dto.getDate()));
         pstm.setString(3, String.valueOf(dto.getTime()));
-        pstm.setString(4, String.valueOf(dto.getQty()));
         pstm.setString(5, dto.getStatus());
-        pstm.setString(6, dto.getAnimalTg());
+        pstm.setString(6, dto.getEmpId());
 
         return pstm.executeUpdate() > 0;
     }
 
-    public boolean deleteANimalFood(String id) throws SQLException {
+    public boolean deleteCageForm(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "DELETE FROM AnimalFood WHERE AnimalTg = ?";
+        String sql = "DELETE FROM CageControl WHERE EmpId = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
         pstm.setString(1, id);
 

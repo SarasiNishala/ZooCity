@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -62,7 +61,7 @@ public class DashBoardController {
         ticketRec.setVisible(false);
 
         root.getChildren().clear();
-        root.getChildren().add(FXMLLoader.load(root.getClass().getResource("/view/CageManage.fxml")));
+        root.getChildren().add(FXMLLoader.load(root.getClass().getResource("/view/CageController.fxml")));
     }
 
     @FXML

@@ -2,6 +2,7 @@ package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.AnimalsFoodDto;
+import lk.ijse.dto.AnimalsMediDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,19 +11,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimalsFoodModel {
-    public static List<AnimalsFoodDto> getAllAnimal() throws SQLException {
+public class AnimalsMediModel {
+
+    public static List<AnimalsMediDto> getAllAnimal() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM Animals";
+        String sql = "SELECT * FROM AnimalMedicine";
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
-        List<AnimalsFoodDto> aniList = new ArrayList<>();
+        List<AnimalsMediDto> aniList = new ArrayList<>();
 
         while (resultSet.next()) {
-            aniList.add(new AnimalsFoodDto(
+            aniList.add(new AnimalsMediDto(
                     resultSet.getString("AnimalTg"),
-                    resultSet.getString("FoodId"),
+                    resultSet.getString("ANimalMedi"),
                     resultSet.getDate("Date").toLocalDate(),
                     resultSet.getTimestamp("Time").toLocalDateTime(),
                     resultSet.getInt("Qty"),
@@ -32,18 +34,18 @@ public class AnimalsFoodModel {
         return aniList;
     }
 
-    public static List<AnimalsFoodDto> getAll() throws SQLException {
+    public static List<AnimalsMediDto> getAll() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM AnimalFoods";
+        String sql = "SELECT * FROM AnimalMedicine";
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
-        List<AnimalsFoodDto> aniList = new ArrayList<>();
+        List<AnimalsMediDto> aniList = new ArrayList<>();
 
         while (resultSet.next()) {
-            aniList.add(new AnimalsFoodDto(
+            aniList.add(new AnimalsMediDto(
                     resultSet.getString("AnimalTg"),
-                    resultSet.getString("FoodId"),
+                    resultSet.getString("MediId"),
                     resultSet.getDate("Date").toLocalDate(),
                     resultSet.getTimestamp("Time").toLocalDateTime(),
                     resultSet.getInt("Qty"),
@@ -53,14 +55,14 @@ public class AnimalsFoodModel {
         return aniList;
     }
 
-    public boolean saveAnimalFood(AnimalsFoodDto dto) throws SQLException {
+    public boolean saveAnimalsMedi(AnimalsMediDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "INSERT INTO AnimalFoods VALUES(?, ?, ?, ?, ?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getAnimalTg());
-        pstm.setString(2, dto.getFoodId());
+        pstm.setString(2, dto.getMediId());
         pstm.setString(3, String.valueOf(dto.getDate()));
         pstm.setString(4, String.valueOf(dto.getTime()));
         pstm.setString(5, String.valueOf(dto.getQty()));
@@ -71,15 +73,15 @@ public class AnimalsFoodModel {
         return isSaved;
     }
 
-    public boolean editANimalsFood(AnimalsFoodDto dto) throws SQLException {
+    public boolean editANimalsMedi(AnimalsMediDto dto) throws SQLException {
         boolean result = false;
         Connection connection = null;
         connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE AnimalFood SET FoodId = ?, Date = ?, Time = ?, Qty = ?, Status = ? WHERE AnimalTg = ?";
+        String sql = "UPDATE AnimalFood SET MediId = ?, Date = ?, Time = ?, Qty = ?, Status = ? WHERE AnimalTg = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
-        pstm.setString(1, dto.getFoodId());
+        pstm.setString(1, dto.getMediId());
         pstm.setString(2, String.valueOf(dto.getDate()));
         pstm.setString(3, String.valueOf(dto.getTime()));
         pstm.setString(4, String.valueOf(dto.getQty()));
@@ -89,7 +91,7 @@ public class AnimalsFoodModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public boolean deleteANimalFood(String id) throws SQLException {
+    public boolean deleteANimalMedi(String id) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "DELETE FROM AnimalFood WHERE AnimalTg = ?";
@@ -99,3 +101,4 @@ public class AnimalsFoodModel {
         return pstm.executeUpdate() > 0;
     }
 }
+

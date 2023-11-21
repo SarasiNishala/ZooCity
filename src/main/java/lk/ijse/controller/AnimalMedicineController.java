@@ -12,34 +12,30 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
-import lk.ijse.dto.AnimalDto;
 import lk.ijse.dto.AnimalsFoodDto;
-import lk.ijse.dto.FoodDto;
-import lk.ijse.model.AnimalModel;
+import lk.ijse.dto.AnimalsMediDto;
 import lk.ijse.model.AnimalsFoodModel;
-import lk.ijse.model.FoodModel;
+import lk.ijse.model.AnimalsMediModel;
 
 import java.sql.SQLException;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class AnimalFoodsController {
+public class AnimalMedicineController {
+    @FXML
+    private ComboBox<String> cmbAnimalId;
+
+    @FXML
+    private ComboBox<String> cmbMediId;
+
     @FXML
     private Label lblDate;
 
     @FXML
     private Label lblTime;
-
-    @FXML
-    private ComboBox <String> cmbAnimalId;
-
-    @FXML
-    private ComboBox <String> cmbFoodId;
 
     @FXML
     private TextField txtQty;
@@ -54,63 +50,35 @@ public class AnimalFoodsController {
     void btnDeleteOnAction(ActionEvent event) {
         String id = cmbAnimalId.getValue();
 
-        var animalsFoodModel = new AnimalsFoodModel();
+        var animalsMediModel = new AnimalsMediModel();
         try {
-            boolean isDeleted = animalsFoodModel.deleteANimalFood(id);
+            boolean isDeleted = animalsMediModel.deleteANimalMedi(id);
 
             if(isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "deleted!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, " deleted!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
     }
-    public  void setComboBox(){
-
-        ObservableList<String> obListAni = FXCollections.observableArrayList();
-        try {
-            List<AnimalsFoodDto> list = AnimalsFoodModel.getAllAnimal();
-
-            for (AnimalsFoodDto dto : list) {
-                obListAni.add(dto.getAnimalTg());
-            }
-
-            cmbAnimalId.setItems(obListAni);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        ObservableList<String> obListFd = FXCollections.observableArrayList();
-        try {
-            List<AnimalsFoodDto> list = AnimalsFoodModel.getAll();
-
-            for (AnimalsFoodDto dto : list) {
-                obListFd.add(dto.getFoodId());
-            }
-
-            cmbFoodId.setItems(obListFd);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @FXML
     void btnEditOnAction(ActionEvent event) {
-        boolean b = validateAnimalFood();
+        boolean b = validateAnimaMedi();
         if (b){
-            String foodId = cmbFoodId.getValue();
+            String mediId = cmbMediId.getValue();
             String animalId = cmbAnimalId.getValue();
             int qty = Integer.parseInt(txtQty.getText());
             String status = txtStatus.getText();
             LocalDate date = LocalDate.parse(lblDate.getText());
             LocalDateTime time = LocalDateTime.parse(lblTime.getText());
 
-            var dto = new AnimalsFoodDto(animalId,foodId,date,time,qty,status);
+            var dto = new AnimalsMediDto(animalId,mediId,date,time,qty,status);
 
-            var model = new AnimalsFoodModel();
+            var model = new AnimalsMediModel();
             try {
-                boolean isSaved = model.editANimalsFood(dto);
+                boolean isSaved = model.editANimalsMedi(dto);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Animals Food Updated!").show();
                     clearFields();
@@ -119,25 +87,26 @@ public class AnimalFoodsController {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
+
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        boolean b = validateAnimalFood();
+        boolean b = validateAnimaMedi();
 
         if(b){
-            String foodId = cmbFoodId.getValue();
+            String mediId = cmbMediId.getValue();
             String animalId = cmbAnimalId.getValue();
             int qty = Integer.parseInt(txtQty.getText());
             String status = txtStatus.getText();
             LocalDate date = LocalDate.parse(lblDate.getText());
             LocalDateTime time = LocalDateTime.parse(lblTime.getText());
 
-            var dto = new AnimalsFoodDto(animalId,foodId,date,time,qty,status);
+            var dto = new AnimalsMediDto(animalId,mediId,date,time,qty,status);
 
-            var model = new AnimalsFoodModel();
+            var model = new AnimalsMediModel();
             try {
-                boolean isSaved = model.saveAnimalFood(dto);
+                boolean isSaved = model.saveAnimalsMedi(dto);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Animal Food Saved!").show();
                     clearFields();
@@ -148,12 +117,6 @@ public class AnimalFoodsController {
         }
 
     }
-    public void initialize() {
-         generateRealTime();
-         setComboBox();
-
-    }
-
     private void generateRealTime() {
         lblDate.setText(LocalDate.now().toString());
         Timeline timeline = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e -> {
@@ -163,13 +126,17 @@ public class AnimalFoodsController {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
+    public void initialize() {
+        generateRealTime();
+
+    }
     void clearFields() {
         cmbAnimalId.setValue("");
-        cmbFoodId.setValue("");
+        cmbMediId.setValue("");
         txtQty.clear();
         txtStatus.clear();
     }
-    private boolean validateAnimalFood() {
+    private boolean validateAnimaMedi() {
         String status = txtStatus.getText();
         boolean isValid = Pattern.matches("([a-zA-Z\\s]+)", status);
 
@@ -186,5 +153,34 @@ public class AnimalFoodsController {
         }
 
         return true;
+    }
+
+    public  void setComboBox(){
+
+        ObservableList<String> obListAni = FXCollections.observableArrayList();
+        try {
+            List<AnimalsMediDto> list = AnimalsMediModel.getAllAnimal();
+
+            for (AnimalsMediDto dto : list) {
+                obListAni.add(dto.getAnimalTg());
+            }
+
+            cmbAnimalId.setItems(obListAni);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        ObservableList<String> obListFd = FXCollections.observableArrayList();
+        try {
+            List<AnimalsMediDto> list = AnimalsMediModel.getAll();
+
+            for (AnimalsMediDto dto : list) {
+                obListFd.add(dto.getMediId());
+            }
+
+            cmbMediId.setItems(obListFd);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

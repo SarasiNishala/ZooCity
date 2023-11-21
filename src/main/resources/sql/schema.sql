@@ -107,7 +107,7 @@ CREATE TABLE Medicine(
 );
 
 CREATE TABLE AnimalMedicine(
-	ANimalTg VARCHAR(20),
+	AnimalTg VARCHAR(20),
 	MediId VARCHAR(6),
 	Date DATE,
 	Time TIME,
