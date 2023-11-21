@@ -10,13 +10,21 @@ CREATE TABLE Admin(
 	Password VARCHAR(10)
 );
 
+CREATE TABLE Income(
+    IncomeId VARCHAR(10)PRIMARY KEY,
+    Amount DOUBLE,
+    Date DATE
+);
+
 CREATE TABLE Ticket(
 	TicketNo VARCHAR(6) PRIMARY KEY,
 	TicketType VARCHAR(30),
 	Price DOUBLE,
 	Date DATE,
 	AdminId VARCHAR(6),
-	CONSTRAINT FOREIGN KEY (AdminId) REFERENCES Admin(AdminId) on Delete Cascade on Update Cascade
+	IncomeId VARCHAR(10),
+	CONSTRAINT FOREIGN KEY (AdminId) REFERENCES Admin(AdminId) on Delete Cascade on Update Cascade,
+	CONSTRAINT FOREIGN KEY (IncomeId) REFERENCES Income(IncomeId) on Delete Cascade on Update Cascade
 );
 
 CREATE TABLE Schedule(
@@ -41,16 +49,9 @@ CREATE TABLE Salary(
 	SalaryId VARCHAR(6) PRIMARY KEY,
 	EmpId VARCHAR(6),
 	Payment INT,
-	CONSTRAINT FOREIGN KEY (EmpId) REFERENCES Employee(EmpId) on Delete Cascade on Update Cascade
-);
-
-CREATE TABLE Slip(
-	SlipId VARCHAR(6) PRIMARY KEY,
-	BankName VARCHAR(20),
+	BankName VARCHAR(30),
 	Date DATE,
-	Time TIME,
-	SalaryId VARCHAR(6),
-	CONSTRAINT FOREIGN KEY (SalaryId) REFERENCES Salary(SalaryId) on Delete Cascade on Update Cascade
+	CONSTRAINT FOREIGN KEY (EmpId) REFERENCES Employee(EmpId) on Delete Cascade on Update Cascade
 );
 
 CREATE TABLE Cages(
@@ -129,7 +130,7 @@ DESC Food;
 DESC Medicine;
 DESC Salary;
 DESC Schedule;
-DESC Slip;
+DESC Income;
 DESC Ticket;
 
 INSERT INTO Admin VALUES ('A001','Nishala','@1234');

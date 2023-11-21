@@ -134,14 +134,24 @@ public class AddEmployeeController{
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/Salary.fxml"));
         Scene scene = new Scene(rootNode);
 
-        root.getChildren().clear();
-        Stage primaryStage = (Stage) root.getScene().getWindow();
+        Stage stage = new Stage();
 
-        primaryStage.setScene(scene);
-        primaryStage.centerOnScreen();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+
+        stage.show();
     }
 
-    public void btnWorkScheduleOnAction(ActionEvent actionEvent) {
+    public void btnWorkScheduleOnAction(ActionEvent actionEvent) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/WorkSchedule.fxml"));
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.centerOnScreen();
+
+        stage.show();
     }
     void clearFields() {
         txtEmpId.clear();

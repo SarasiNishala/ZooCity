@@ -128,6 +128,7 @@ public class AnimalMedicineController {
     }
     public void initialize() {
         generateRealTime();
+        setComboBox();
 
     }
     void clearFields() {

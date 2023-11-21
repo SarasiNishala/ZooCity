@@ -1,7 +1,6 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
-import lk.ijse.dto.AnimalDto;
 import lk.ijse.dto.CageDto;
 
 import java.sql.Connection;
@@ -20,6 +19,32 @@ public class CageModel {
         pstm.setString(1, code);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static String generateNextCageId() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT CageId FROM Cages ORDER BY CageId DESC LIMIT 1";
+        ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+
+        String currentCageId = null;
+
+        if (resultSet.next()) {
+            currentCageId = resultSet.getString(1);
+            return splitCageId(currentCageId);
+        }
+        return splitCageId(null);
+    }
+
+    private static String splitCageId(Object currentCageId) {
+//        if (currentCageId != null) {
+//            String[] split = currentCageId.split("C");
+//            int id = Integer.parseInt(split[1]);
+//            id++;
+//            return "C00" + id;
+//        }
+//        return "C001";
+    return null;
     }
 
     public boolean saveCage(CageDto dto) throws SQLException {
@@ -55,7 +80,7 @@ public class CageModel {
     public List<CageDto> getAll() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM Cage";
+        String sql = "SELECT * FROM Cages";
         ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
 
         List<CageDto> aniList = new ArrayList<>();

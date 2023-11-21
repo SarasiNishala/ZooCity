@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +15,7 @@
 
 <AnchorPane prefHeight="660.0" prefWidth="992.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SalaryController">
    <children>
-      <TableView layoutX="86.0" layoutY="196.0" prefHeight="461.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
+      <TableView layoutX="86.0" layoutY="257.0" prefHeight="400.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
          <columns>
             <TableColumn prefWidth="157.0" text="Salary Id" />
             <TableColumn prefWidth="234.0" text="Employee Id" />
@@ -24,25 +23,17 @@
             <TableColumn prefWidth="205.0" text="Action" />
          </columns>
       </TableView>
-      <Text layoutX="86.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary Id">
+      <Text layoutX="86.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary Id">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TextField layoutX="85.0" layoutY="50.0" prefHeight="35.0" prefWidth="180.0" promptText="Enter Id" style="-fx-background-color: #F3F0F0;">
-         <effect>
-            <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.35" width="0.0">
-               <color>
-                  <Color opacity="0.23000000417232513" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <Text layoutX="87.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment">
+      <Text layoutX="87.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Label layoutX="87.0" layoutY="137.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Label layoutX="87.0" layoutY="198.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.43" width="0.0">
                <color>
@@ -51,15 +42,15 @@
             </DropShadow>
          </effect>
       </Label>
-      <Button layoutX="294.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
-      <Button layoutX="405.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
-      <Button layoutX="519.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
-      <Text layoutX="303.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Id">
+      <Button layoutX="294.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
+      <Button layoutX="405.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
+      <Button layoutX="519.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
+      <Text layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Id">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <ComboBox fx:id="txtAniType" layoutX="300.0" layoutY="49.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <ComboBox layoutX="300.0" layoutY="110.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="3.03" offsetX="2.0" offsetY="2.0" radius="0.25749999999999995" spread="0.23" width="0.0">
                <color>
@@ -68,10 +59,19 @@
             </DropShadow>
          </effect>
       </ComboBox>
-      <ImageView fitHeight="194.0" fitWidth="305.0" layoutX="641.0" layoutY="4.0">
+      <ImageView fitHeight="194.0" fitWidth="305.0" layoutX="641.0" layoutY="43.0">
          <image>
             <Image url="@../Assets/salaryImage.png" />
          </image>
       </ImageView>
+      <Label layoutX="88.0" layoutY="109.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+         <effect>
+            <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.43" width="0.0">
+               <color>
+                  <Color opacity="0.23000000417232513" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
    </children>
 </AnchorPane>

@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.dto.CageDto;
 import lk.ijse.dto.Tm.CageTm;
 import lk.ijse.model.CageModel;
+import lk.ijse.model.MedicineModel;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -126,6 +127,7 @@ public class CageController {
         setComboBox();
         setListener();
         loadAllData();
+        generateNextCageId();
 
         colCageId.setCellValueFactory(new PropertyValueFactory<>("CageId"));
         colCageType.setCellValueFactory(new PropertyValueFactory<>("CageTYpe"));
@@ -201,6 +203,14 @@ public class CageController {
                 new Alert(Alert.AlertType.CONFIRMATION, "cage deleted!").show();
         } catch (SQLException ex) {
             new Alert(Alert.AlertType.ERROR, ex.getMessage()).show();
+        }
+    }
+    private void generateNextCageId() {
+        try {
+            String cageId = CageModel.generateNextCageId();
+            lblCageId.setText(cageId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

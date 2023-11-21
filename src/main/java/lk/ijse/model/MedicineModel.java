@@ -43,7 +43,7 @@ public class MedicineModel {
             id++;
             return "M00" + id;
         }
-        return "m001";
+        return "M001";
     }
 
     public boolean saveMedicine(MedicineDto dto) throws SQLException {

@@ -12,11 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
-import lk.ijse.dto.FoodDto;
 import lk.ijse.dto.MedicineDto;
-import lk.ijse.dto.Tm.FoodTm;
 import lk.ijse.dto.Tm.MedicineTm;
-import lk.ijse.model.FoodModel;
 import lk.ijse.model.MedicineModel;
 
 import java.io.IOException;
@@ -53,7 +50,7 @@ public class MedicineController {
     private AnchorPane root;
 
     @FXML
-    private TableView<FoodTm> tblMedicine;
+    private TableView<MedicineTm> tblMedicine;
 
     @FXML
     private TextField txtMediName;
@@ -186,7 +183,7 @@ public class MedicineController {
             MedicineModel medicineModel = new MedicineModel();
             List<MedicineDto> dtoList = medicineModel.getAll();
 
-            ObservableList<FoodTm> obList = FXCollections.observableArrayList();
+            ObservableList<MedicineTm> obList = FXCollections.observableArrayList();
 
             for(MedicineDto dto : dtoList) {
                 Button btn = new Button("remove");
@@ -208,7 +205,7 @@ public class MedicineController {
                         tblMedicine.refresh();
                     }
                 });
-                var tm = new FoodTm(
+                var tm = new MedicineTm(
                         dto.getMediId(),
                         dto.getName(),
                         dto.getPrice(),
