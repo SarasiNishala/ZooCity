@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="660.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.IncomeController">
+   <children>
+      <ImageView fitHeight="298.0" fitWidth="251.0" layoutX="705.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/Income.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblIncome" layoutX="46.0" layoutY="214.0" prefHeight="400.0" prefWidth="616.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
+         <columns>
+            <TableColumn fx:id="colIncomeId" prefWidth="142.0" text="Income Id" />
+            <TableColumn fx:id="ColAmount" prefWidth="170.0" text="Amount" />
+            <TableColumn fx:id="ColDate" minWidth="0.0" prefWidth="167.0" text="Date" />
+            <TableColumn fx:id="clAction" prefWidth="136.0" text="Action" />
+         </columns>
+      </TableView>
+      <Text layoutX="54.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income Id">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="257.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblIncomeId" layoutX="50.0" layoutY="143.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+         <effect>
+            <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.43" width="0.0">
+               <color>
+                  <Color opacity="0.23000000417232513" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Label fx:id="lblAmount" layoutX="257.0" layoutY="143.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+         <effect>
+            <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.43" width="0.0">
+               <color>
+                  <Color opacity="0.23000000417232513" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Text layoutX="475.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblDate" layoutX="472.0" layoutY="143.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+         <effect>
+            <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.43" width="0.0">
+               <color>
+                  <Color opacity="0.23000000417232513" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Text layoutX="387.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Text>
+      <TextField fx:id="lblSearch" layoutX="705.0" layoutY="362.0" prefHeight="30.0" prefWidth="221.0" promptText="Search Here" style="-fx-border-radius: 10; -fx-background-color: #e3dcdc;" />
+      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="898.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assets/search.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="lblDailyIncome" layoutX="705.0" layoutY="415.0" prefHeight="191.0" prefWidth="221.0" style="-fx-border-radius: 10; -fx-background-color: #e3dcdc;" />
+      <Text layoutX="706.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Your Daily Income">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

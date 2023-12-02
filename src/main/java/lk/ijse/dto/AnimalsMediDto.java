@@ -1,5 +1,7 @@
 package lk.ijse.dto;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import lombok.*;
@@ -11,8 +13,7 @@ import lombok.*;
 public class AnimalsMediDto {
     private String AnimalTg;
     private String MediId;
-    private LocalDate Date;
-    private LocalDateTime Time;
+    private java.sql.Date Date;
+    private java.sql.Time Time;
     private int Qty;
-    private String Status;
 }

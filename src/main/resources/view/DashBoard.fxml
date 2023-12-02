@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Group?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -102,12 +101,6 @@
             </ImageView>
          </children>
       </Group>
-      <TextField layoutX="167.0" layoutY="88.0" prefHeight="24.0" prefWidth="210.0" promptText="Search" style="-fx-background-color: #EFEDEC; -fx-background-radius: 5;" />
-      <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="350.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Assets/search.png" />
-         </image>
-      </ImageView>
-      <Pane fx:id="root" layoutX="152.0" layoutY="125.0" prefHeight="660.0" prefWidth="992.0" />
+      <Pane fx:id="root" layoutX="152.0" layoutY="94.0" prefHeight="676.0" prefWidth="992.0" />
    </children>
 </AnchorPane>

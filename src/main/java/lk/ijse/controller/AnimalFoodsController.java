@@ -18,6 +18,7 @@ import lk.ijse.dto.FoodDto;
 import lk.ijse.model.AnimalModel;
 import lk.ijse.model.AnimalsFoodModel;
 import lk.ijse.model.FoodModel;
+import lk.ijse.model.MedicineModel;
 
 import java.sql.SQLException;
 import java.sql.Time;
@@ -45,9 +46,6 @@ public class AnimalFoodsController {
     private TextField txtQty;
 
     @FXML
-    private TextField txtStatus;
-
-    @FXML
     void btnClearOnAction(ActionEvent event) {clearFields();}
 
     @FXML
@@ -70,9 +68,9 @@ public class AnimalFoodsController {
 
         ObservableList<String> obListAni = FXCollections.observableArrayList();
         try {
-            List<AnimalsFoodDto> list = AnimalsFoodModel.getAllAnimal();
+            List<AnimalDto> list = AnimalModel.getAll();
 
-            for (AnimalsFoodDto dto : list) {
+            for (AnimalDto dto : list) {
                 obListAni.add(dto.getAnimalTg());
             }
 
@@ -83,9 +81,9 @@ public class AnimalFoodsController {
 
         ObservableList<String> obListFd = FXCollections.observableArrayList();
         try {
-            List<AnimalsFoodDto> list = AnimalsFoodModel.getAll();
+            List<FoodDto> list = FoodModel.getAll();
 
-            for (AnimalsFoodDto dto : list) {
+            for (FoodDto dto : list) {
                 obListFd.add(dto.getFoodId());
             }
 
@@ -102,16 +100,17 @@ public class AnimalFoodsController {
             String foodId = cmbFoodId.getValue();
             String animalId = cmbAnimalId.getValue();
             int qty = Integer.parseInt(txtQty.getText());
-            String status = txtStatus.getText();
             LocalDate date = LocalDate.parse(lblDate.getText());
             LocalDateTime time = LocalDateTime.parse(lblTime.getText());
 
-            var dto = new AnimalsFoodDto(animalId,foodId,date,time,qty,status);
+            var dto = new AnimalsFoodDto(animalId,foodId,date,time,qty);
 
             var model = new AnimalsFoodModel();
             try {
                 boolean isSaved = model.editANimalsFood(dto);
                 if (isSaved) {
+                    FoodModel foodModel = new FoodModel();
+                    boolean isUpdateFood = foodModel.updateStock(foodId,qty);
                     new Alert(Alert.AlertType.CONFIRMATION, "Animals Food Updated!").show();
                     clearFields();
                 }
@@ -129,18 +128,20 @@ public class AnimalFoodsController {
             String foodId = cmbFoodId.getValue();
             String animalId = cmbAnimalId.getValue();
             int qty = Integer.parseInt(txtQty.getText());
-            String status = txtStatus.getText();
             LocalDate date = LocalDate.parse(lblDate.getText());
             LocalDateTime time = LocalDateTime.parse(lblTime.getText());
 
-            var dto = new AnimalsFoodDto(animalId,foodId,date,time,qty,status);
+            var dto = new AnimalsFoodDto(animalId,foodId,date,time,qty);
 
             var model = new AnimalsFoodModel();
             try {
                 boolean isSaved = model.saveAnimalFood(dto);
                 if (isSaved) {
+                    FoodModel foodModel = new FoodModel();
+                    boolean isUpdateFood = foodModel.updateStock(foodId,qty);
+                    if (isUpdateFood){
                     new Alert(Alert.AlertType.CONFIRMATION, "Animal Food Saved!").show();
-                    clearFields();
+                    clearFields();}
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -167,16 +168,8 @@ public class AnimalFoodsController {
         cmbAnimalId.setValue("");
         cmbFoodId.setValue("");
         txtQty.clear();
-        txtStatus.clear();
     }
     private boolean validateAnimalFood() {
-        String status = txtStatus.getText();
-        boolean isValid = Pattern.matches("([a-zA-Z\\s]+)", status);
-
-        if (!isValid){
-            new Alert(Alert.AlertType.ERROR, "Invalid status").show();
-            return false;
-        }
         String qty = (txtQty.getText());
         boolean isValidTel = Pattern.matches("(\\d{1,})", qty);
 
@@ -184,7 +177,6 @@ public class AnimalFoodsController {
             new Alert(Alert.AlertType.ERROR, "Invalid Qty").show();
             return false;
         }
-
         return true;
     }
 }

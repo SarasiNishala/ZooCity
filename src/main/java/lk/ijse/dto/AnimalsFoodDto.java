@@ -16,5 +16,4 @@ public class AnimalsFoodDto {
     private LocalDate Date;
     private LocalDateTime Time;
     private int Qty;
-    private String Status;
 }

@@ -5,11 +5,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.db.DbConnection;
+import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.Tm.WorkScheduleTm;
 import lk.ijse.dto.WorkScheduleDto;
 import lk.ijse.model.WorkScheduleModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.swing.JRViewer;
 
+import javax.swing.*;
+import java.awt.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -95,6 +107,27 @@ public class WorkScheduleController {
 
     @FXML
     void btnReportOnAction(ActionEvent event) {
+        try {
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Reprts/");
+            JRDesignQuery query = new JRDesignQuery();
+            query.setText("SELECT * FROM Schedule");
+            jasperDesign.setQuery(query);
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
+
+            JFrame frame = new JFrame("Jasper Report Viewer");
+            JRViewer viewer = new JRViewer(jasperPrint);
+
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.getContentPane().add(viewer);
+            frame.setSize(new Dimension(1200, 800));
+            frame.setVisible(true);
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -111,6 +144,7 @@ public class WorkScheduleController {
     public void initialize() {
         setDate();
         generateNextScheduleId();
+        loadAllData();
 
         colScheduleId.setCellValueFactory(new PropertyValueFactory<>("ScheduleId"));
         colHours.setCellValueFactory(new PropertyValueFactory<>("Hours"));

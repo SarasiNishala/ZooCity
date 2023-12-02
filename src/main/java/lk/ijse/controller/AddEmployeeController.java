@@ -14,7 +14,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.Tm.EmployeeTm;
+import lk.ijse.dto.WorkScheduleDto;
 import lk.ijse.model.EmployeeModel;
+import lk.ijse.model.WorkScheduleModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -79,7 +81,6 @@ public class AddEmployeeController{
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-            AddEmployeeController emp = new AddEmployeeController();
         }
     }
 
@@ -168,10 +169,10 @@ public class AddEmployeeController{
 
         ObservableList<String> obList = FXCollections.observableArrayList();
             try {
-                List<EmployeeDto> list = EmployeeModel.getAll();
+                List<WorkScheduleDto> list = WorkScheduleModel.getAll();
 
-                for (EmployeeDto dto : list) {
-                    obList.add(dto.getShiftId());
+                for (WorkScheduleDto dto : list) {
+                    obList.add(dto.getScheduleId());
                 }
 
                 cmbShiftId.setItems(obList);
@@ -227,7 +228,7 @@ public class AddEmployeeController{
 
         try {
             EmployeeModel employeeModel = new EmployeeModel();
-            List<EmployeeDto> dtoList = employeeModel.getAll();
+            List<EmployeeDto> dtoList = employeeModel.getAllEmp();
 
             ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
 
@@ -245,9 +246,9 @@ public class AddEmployeeController{
                         int selectedIndex = tblEmployee.getSelectionModel().getSelectedIndex();
                         String code = (String) colEmpId.getCellData(selectedIndex);
 
-                        deleteEmp(code);   //delete item from the database
+                        deleteEmp(code);
 
-                        obList.remove(selectedIndex);   //delete item from the JFX-Table
+                        obList.remove(selectedIndex);
                         tblEmployee.refresh();
                     }
                 });
@@ -274,7 +275,7 @@ public class AddEmployeeController{
         try {
             boolean isDeleted = EmployeeModel.deleteEmployee(code);
             if(isDeleted)
-                new Alert(Alert.AlertType.CONFIRMATION, "item deleted!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee deleted!").show();
         } catch (SQLException ex) {
             new Alert(Alert.AlertType.ERROR, ex.getMessage()).show();
         }

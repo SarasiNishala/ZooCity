@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="homeRoot" prefHeight="686.0" prefWidth="1000.0" style="-fx-background-color: transpranet;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardPneController">
+<AnchorPane fx:id="homeRoot" prefHeight="686.0" prefWidth="1000.0" style="-fx-background-color: transpranet;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashBoardPneController">
    <children>
       <ImageView fitHeight="197.0" fitWidth="526.0" layoutX="23.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -52,12 +53,12 @@
          </font>
       </Text>
       <Text fill="#434040" layoutX="162.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tickets have been sold." />
-      <Text layoutX="26.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today’s summary">
+      <Text layoutX="26.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today’s summary">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Pane layoutX="346.0" layoutY="255.0" prefHeight="24.0" prefWidth="200.0" style="-fx-background-color: #EFEDEC; -fx-background-radius: 5;">
+      <Pane layoutX="346.0" layoutY="308.0" prefHeight="24.0" prefWidth="200.0" style="-fx-background-color: #EFEDEC; -fx-background-radius: 5;">
          <effect>
             <DropShadow blurType="ONE_PASS_BOX" height="0.0" offsetX="1.0" offsetY="1.0" radius="0.0" spread="0.58" width="0.0">
                <color>
@@ -74,7 +75,7 @@
             <Text layoutX="6.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee" />
          </children>
       </Pane>
-      <Pane layoutX="32.0" layoutY="298.0" prefHeight="125.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <Pane layoutX="32.0" layoutY="356.0" prefHeight="125.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
             <DropShadow height="1.0" offsetX="3.0" offsetY="3.0" radius="0.0" spread="0.34" width="0.0">
                <color>
@@ -83,19 +84,19 @@
             </DropShadow>
          </effect>
          <children>
-            <Text fill="#145b33" layoutX="28.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctors">
+            <Text fill="#145b33" layoutX="28.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctors">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <TextField layoutX="32.0" layoutY="48.0" prefHeight="56.0" prefWidth="85.0" style="-fx-background-color: transpranet;">
+            <TextField editable="false" layoutX="32.0" layoutY="49.0" prefHeight="56.0" prefWidth="85.0" style="-fx-background-color: transpranet;" text="11">
                <font>
                   <Font size="36.0" />
                </font>
             </TextField>
          </children>
       </Pane>
-      <Pane layoutX="398.0" layoutY="296.0" prefHeight="128.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <Pane layoutX="398.0" layoutY="354.0" prefHeight="128.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
             <DropShadow height="1.0" offsetX="3.0" offsetY="3.0" radius="0.0" spread="0.34" width="0.0">
                <color>
@@ -104,14 +105,19 @@
             </DropShadow>
          </effect>
          <children>
-            <Text fill="#145b33" layoutX="19.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaners">
+            <Text fill="#145b33" layoutX="19.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cleaners">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
+            <TextField editable="false" layoutX="32.0" layoutY="52.0" prefHeight="68.0" prefWidth="97.0" style="-fx-background-color: transpranet;" text="50">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
-      <Pane layoutX="214.0" layoutY="298.0" prefHeight="126.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+      <Pane layoutX="214.0" layoutY="356.0" prefHeight="126.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 8;">
          <effect>
             <DropShadow height="1.0" offsetX="3.0" offsetY="3.0" radius="0.0" spread="0.34" width="0.0">
                <color>
@@ -130,28 +136,13 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <TextField layoutX="36.0" layoutY="51.0" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: transpranet;">
+            <TextField editable="false" layoutX="36.0" layoutY="55.0" prefHeight="68.0" prefWidth="85.0" style="-fx-background-color: transpranet;" text="42">
                <font>
                   <Font size="36.0" />
                </font>
             </TextField>
          </children>
       </Pane>
-      <TextField layoutX="425.0" layoutY="331.0" prefHeight="68.0" prefWidth="97.0" style="-fx-background-color: transpranet;">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </TextField>
-      <ImageView fitHeight="193.0" fitWidth="517.0" layoutX="35.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Assets/attendence.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="191.0" fitWidth="405.0" layoutX="581.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Assets/graph.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="572.0" layoutY="26.0" prefHeight="391.0" prefWidth="411.0" style="-fx-background-color: white; -fx-background-radius: 10;">
          <children>
             <Pane layoutX="14.0" layoutY="19.0" prefHeight="24.0" prefWidth="173.0" style="-fx-background-color: #EFEDEC; -fx-background-radius: 5;">
@@ -231,27 +222,105 @@
                   <Image url="@../Assets/medicineBlack.png" />
                </image>
             </ImageView>
-            <TextField layoutX="22.0" layoutY="128.0" prefHeight="61.0" prefWidth="111.0" style="-fx-background-color: transpranet;">
+            <TextField editable="false" layoutX="22.0" layoutY="128.0" prefHeight="61.0" prefWidth="111.0" style="-fx-background-color: transpranet;" text="10458">
                <font>
-                  <Font size="24.0" />
+                  <Font size="30.0" />
                </font>
             </TextField>
-            <TextField layoutX="229.0" layoutY="130.0" prefHeight="61.0" prefWidth="111.0" style="-fx-background-color: transpranet;">
+            <TextField editable="false" layoutX="237.0" layoutY="130.0" prefHeight="61.0" prefWidth="97.0" style="-fx-background-color: transpranet;" text="231">
                <font>
-                  <Font size="24.0" />
+                  <Font size="30.0" />
                </font>
             </TextField>
-            <TextField layoutX="231.0" layoutY="307.0" prefHeight="61.0" prefWidth="111.0" style="-fx-background-color: transpranet;">
+            <TextField editable="false" layoutX="231.0" layoutY="300.0" prefHeight="61.0" prefWidth="111.0" style="-fx-background-color: transpranet;" text="Low">
                <font>
-                  <Font size="24.0" />
+                  <Font size="30.0" />
                </font>
             </TextField>
-            <TextField layoutX="24.0" layoutY="301.0" prefHeight="61.0" prefWidth="111.0" style="-fx-background-color: transpranet;">
+            <TextField editable="false" layoutX="24.0" layoutY="298.0" prefHeight="61.0" prefWidth="111.0" style="-fx-background-color: transpranet;" text="Filld">
                <font>
-                  <Font size="24.0" />
+                  <Font size="30.0" />
                </font>
             </TextField>
          </children>
       </Pane>
+      <Pane layoutX="24.0" layoutY="236.0" prefHeight="61.0" prefWidth="526.0">
+         <children>
+            <Label fx:id="lblDate" layoutX="5.0" layoutY="9.0" prefHeight="42.0" prefWidth="174.0" textFill="#145b33">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTime" layoutX="406.0" layoutY="9.0" prefHeight="42.0" prefWidth="118.0" textFill="#145b33">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="586.0" layoutY="447.0" prefHeight="77.0" prefWidth="394.0" style="-fx-background-color: #EFEDEC; -fx-background-radius: 5;">
+         <children>
+            <Pane prefHeight="77.0" prefWidth="42.0" style="-fx-background-color: E4CEBD; -fx-background-radius: 5;" />
+            <Text fill="#2c2929" layoutX="55.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Food Stock">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#c91313" layoutX="56.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Very Low">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Text>
+            <ImageView layoutX="310.0" layoutY="14.0">
+               <image>
+                  <Image url="@../Assets/alert.gif" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow height="0.0" offsetX="1.0" offsetY="1.0" radius="0.0" spread="0.58" width="0.0">
+               <color>
+                  <Color opacity="0.3371647596359253" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Pane layoutX="586.0" layoutY="561.0" prefHeight="77.0" prefWidth="394.0" style="-fx-background-color: #EFEDEC; -fx-background-radius: 5;">
+         <children>
+            <Pane prefHeight="77.0" prefWidth="42.0" style="-fx-background-color: B5C2DC; -fx-background-radius: 5;" />
+            <Text fill="#2c2929" layoutX="59.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Medicine Stock">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#1a7c0d" layoutX="56.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is Good">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Text>
+            <ImageView layoutX="309.0" layoutY="15.0">
+               <image>
+                  <Image url="@../Assets/good.gif" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow height="0.0" offsetX="1.0" offsetY="1.0" radius="0.0" spread="0.58" width="0.0">
+               <color>
+                  <Color opacity="0.3371647596359253" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <ImageView fitHeight="239.0" fitWidth="225.0" layoutX="342.0" layoutY="444.0">
+         <image>
+            <Image url="@../Assets/giraff.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="205.0" fitWidth="301.0" layoutX="24.0" layoutY="473.0">
+         <image>
+            <Image url="@../Assets/lion.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

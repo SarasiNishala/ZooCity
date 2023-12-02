@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -40,5 +41,17 @@ public class LoginFormController {
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
 
+    }
+
+    public void forgotOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/ForgotPassword.fxml"));
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.centerOnScreen();
+
+        stage.show();
     }
 }

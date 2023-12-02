@@ -11,6 +11,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeModel {
+    public static String checkCategory(String empId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+try {
+        String sql = "SELECT Category FROM Employee WHERE EmpId = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        pstm.setObject(1,empId);
+
+        ResultSet resultSet = pstm.executeQuery();
+    String category = "";
+        if (resultSet.next()){
+             category = resultSet.getString(1);
+
+        }
+        return category;
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+
+    }
+
     public boolean saveEmployee(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -76,28 +96,6 @@ public class EmployeeModel {
      }
     }
 
-    public static List<EmployeeDto> getAll() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
-
-        String sql = "SELECT * FROM Employee";
-        ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
-
-        List<EmployeeDto> empList = new ArrayList<>();
-
-        while (resultSet.next()) {
-            empList.add(new EmployeeDto(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getInt(4),
-                    resultSet.getString(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7)
-            ));
-        }
-        return empList;
-    }
-
     public static boolean deleteEmployee(String code) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -106,6 +104,33 @@ public class EmployeeModel {
         pstm.setString(1, code);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public static List<EmployeeDto> getAllEmp() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM Employee";
+        ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+
+        List<EmployeeDto> aniList = new ArrayList<>();
+
+        while (resultSet.next()) {
+
+            String empid = resultSet.getString(1);
+            String empName = resultSet.getString(2);
+            String address = resultSet.getString(3);
+            int contact= resultSet.getInt(4);
+            String category= resultSet.getString(5);
+            String sheduleId= resultSet.getString(6);
+            String adminId= resultSet.getString(7);
+
+
+            EmployeeDto dto = new EmployeeDto(empid,empName,address,contact,category,sheduleId,adminId);
+
+            aniList.add(dto);
+        }
+
+        return aniList;
     }
 }
 

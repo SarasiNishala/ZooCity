@@ -10,12 +10,6 @@ CREATE TABLE Admin(
 	Password VARCHAR(10)
 );
 
-CREATE TABLE Income(
-    IncomeId VARCHAR(10)PRIMARY KEY,
-    Amount DOUBLE,
-    Date DATE
-);
-
 CREATE TABLE Ticket(
 	TicketNo VARCHAR(6) PRIMARY KEY,
 	TicketType VARCHAR(30),
@@ -23,9 +17,8 @@ CREATE TABLE Ticket(
 	Date DATE,
 	AdminId VARCHAR(6),
 	IncomeId VARCHAR(10),
-	CONSTRAINT FOREIGN KEY (AdminId) REFERENCES Admin(AdminId) on Delete Cascade on Update Cascade,
-	CONSTRAINT FOREIGN KEY (IncomeId) REFERENCES Income(IncomeId) on Delete Cascade on Update Cascade
-);
+	CONSTRAINT FOREIGN KEY (AdminId) REFERENCES Admin(AdminId) on Delete Cascade on Update Cascade
+	);
 
 CREATE TABLE Schedule(
 	ScheduleId VARCHAR(6) PRIMARY KEY,
@@ -48,8 +41,7 @@ CREATE TABLE Employee(
 CREATE TABLE Salary(
 	SalaryId VARCHAR(6) PRIMARY KEY,
 	EmpId VARCHAR(6),
-	Payment INT,
-	BankName VARCHAR(30),
+	Payment DOUBLE,
 	Date DATE,
 	CONSTRAINT FOREIGN KEY (EmpId) REFERENCES Employee(EmpId) on Delete Cascade on Update Cascade
 );
@@ -65,7 +57,6 @@ CREATE TABLE CageControl(
 	CageId VARCHAR(6),
 	Date DATE,
 	Time TIME,
-	Status VARCHAR (30),
 	CONSTRAINT FOREIGN KEY (EmpId) REFERENCES Employee(EmpId) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (CageId) REFERENCES Cages(CageId) on Delete Cascade on Update Cascade
 );
@@ -94,7 +85,6 @@ CREATE TABLE AnimalFoods(
 	Date DATE,
 	Time TIME,
 	Qty INT,
-	Status VARCHAR(10),
 	CONSTRAINT FOREIGN KEY (ANimalTg) REFERENCES Animals(ANimalTg) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (FoodId) REFERENCES Food(FoodId) on Delete Cascade on Update Cascade
 );
@@ -113,7 +103,6 @@ CREATE TABLE AnimalMedicine(
 	Date DATE,
 	Time TIME,
 	Qty INT,
-	Status VARCHAR(10),
 	CONSTRAINT FOREIGN KEY (ANimalTg) REFERENCES Animals(ANimalTg) on Delete Cascade on Update Cascade,
 	CONSTRAINT FOREIGN KEY (MediId) REFERENCES Medicine(MediId) on Delete Cascade on Update Cascade
 );

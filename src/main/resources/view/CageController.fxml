@@ -11,16 +11,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="660.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CageController">
+<AnchorPane prefHeight="711.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CageController">
    <children>
-      <ImageView fitHeight="354.0" fitWidth="224.0" layoutX="746.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="354.0" fitWidth="224.0" layoutX="746.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assets/cageImage.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtNo" layoutX="324.0" layoutY="70.0" prefHeight="35.0" prefWidth="195.0" promptText="Animal No" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <TextField fx:id="txtNo" layoutX="324.0" layoutY="117.0" prefHeight="35.0" prefWidth="195.0" promptText="Animal No" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.28" width="0.0">
                <color>
@@ -29,10 +30,10 @@
             </DropShadow>
          </effect>
       </TextField>
-      <Text layoutX="326.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Of Animals" />
-      <Text layoutX="91.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cage Id" />
-      <Text layoutX="552.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cage Type" />
-      <ComboBox fx:id="cmbType" layoutX="551.0" layoutY="70.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-radius: 5; -fx-background-color: #F3F0F0;">
+      <Text layoutX="326.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No Of Animals" />
+      <Text layoutX="91.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cage Id" />
+      <Text layoutX="552.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cage Type" />
+      <ComboBox fx:id="cmbType" layoutX="551.0" layoutY="117.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-radius: 5; -fx-background-color: #F3F0F0;">
          <effect>
             <DropShadow height="0.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.28" width="0.0">
                <color>
@@ -40,10 +41,10 @@
                </color>
             </DropShadow>
          </effect></ComboBox>
-      <Button layoutX="88.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
-      <Button layoutX="209.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-color: #7ACC9E; -fx-background-radius: 5;" text="Edit" />
-      <Button layoutX="326.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
-      <TableView fx:id="tblCage" layoutX="88.0" layoutY="192.0" prefHeight="461.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
+      <Button layoutX="88.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
+      <Button layoutX="209.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-color: #7ACC9E; -fx-background-radius: 5;" text="Edit" />
+      <Button layoutX="326.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
+      <TableView fx:id="tblCage" layoutX="88.0" layoutY="239.0" prefHeight="461.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;" stylesheets="@../Style/Table.css">
          <columns>
             <TableColumn fx:id="colCageId" prefWidth="161.0" text="Cage Id" />
             <TableColumn fx:id="colCageType" prefWidth="213.0" text="Cage Type" />
@@ -51,8 +52,8 @@
             <TableColumn fx:id="colAction" prefWidth="229.0" text="Action" />
          </columns>
       </TableView>
-      <Button layoutX="443.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnCageControl" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: #E7A569; -fx-background-radius: 5;" text="Cage Controll" />
-      <Label fx:id="lblCageId" layoutX="90.0" layoutY="70.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Button layoutX="443.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnCageControl" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: #E7A569; -fx-background-radius: 5;" text="Cage Controll" />
+      <Label fx:id="lblCageId" layoutX="90.0" layoutY="117.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="6.05" offsetX="2.0" offsetY="2.0" radius="4.0375" width="12.1">
                <color>
@@ -61,5 +62,10 @@
             </DropShadow>
          </effect>
       </Label>
+      <Text layoutX="412.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cages">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

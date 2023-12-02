@@ -46,6 +46,20 @@ public class MedicineModel {
         return "M001";
     }
 
+    public  boolean updateStock(String mediId, int qty) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE Medicine SET Qty = Qty-? WHERE MediId = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, String.valueOf(qty));
+        pstm.setString(2, mediId);
+
+        boolean isSaved = pstm.executeUpdate() > 0;
+
+        return isSaved;
+    }
+
     public boolean saveMedicine(MedicineDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -80,7 +94,7 @@ public class MedicineModel {
         return isSaved;
     }
 
-    public List<MedicineDto> getAll() throws SQLException {
+    public static List<MedicineDto> getAll() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM Medicine";

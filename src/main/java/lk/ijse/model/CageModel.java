@@ -36,21 +36,20 @@ public class CageModel {
         return splitCageId(null);
     }
 
-    private static String splitCageId(Object currentCageId) {
-//        if (currentCageId != null) {
-//            String[] split = currentCageId.split("C");
-//            int id = Integer.parseInt(split[1]);
-//            id++;
-//            return "C00" + id;
-//        }
-//        return "C001";
-    return null;
+    private static String splitCageId(String currentCageId) {
+        if (currentCageId != null) {
+            String[] split = currentCageId.split("C");
+            int id = Integer.parseInt(split[1]);
+            id++;
+            return "C00" + id;
+        }
+        return "C001";
     }
 
     public boolean saveCage(CageDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO Cage VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Cages VALUES(?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getCageId());
@@ -77,7 +76,7 @@ public class CageModel {
         return isSaved;
     }
 
-    public List<CageDto> getAll() throws SQLException {
+    public static List<CageDto> getAll() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM Cages";

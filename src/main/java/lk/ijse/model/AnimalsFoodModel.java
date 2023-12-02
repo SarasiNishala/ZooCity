@@ -25,8 +25,7 @@ public class AnimalsFoodModel {
                     resultSet.getString("FoodId"),
                     resultSet.getDate("Date").toLocalDate(),
                     resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getInt("Qty"),
-                    resultSet.getString("Status")
+                    resultSet.getInt("Qty")
             ));
         }
         return aniList;
@@ -46,8 +45,7 @@ public class AnimalsFoodModel {
                     resultSet.getString("FoodId"),
                     resultSet.getDate("Date").toLocalDate(),
                     resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getInt("Qty"),
-                    resultSet.getString("Status")
+                    resultSet.getInt("Qty")
             ));
         }
         return aniList;
@@ -64,7 +62,6 @@ public class AnimalsFoodModel {
         pstm.setString(3, String.valueOf(dto.getDate()));
         pstm.setString(4, String.valueOf(dto.getTime()));
         pstm.setString(5, String.valueOf(dto.getQty()));
-        pstm.setString(6,dto.getStatus());
 
         boolean isSaved = pstm.executeUpdate() > 0;
 
@@ -83,7 +80,6 @@ public class AnimalsFoodModel {
         pstm.setString(2, String.valueOf(dto.getDate()));
         pstm.setString(3, String.valueOf(dto.getTime()));
         pstm.setString(4, String.valueOf(dto.getQty()));
-        pstm.setString(5, dto.getStatus());
         pstm.setString(6, dto.getAnimalTg());
 
         return pstm.executeUpdate() > 0;

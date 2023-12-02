@@ -7,19 +7,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.util.Duration;
+import lk.ijse.dto.AnimalDto;
 import lk.ijse.dto.AnimalsFoodDto;
 import lk.ijse.dto.AnimalsMediDto;
+import lk.ijse.dto.MedicineDto;
+import lk.ijse.model.AnimalModel;
 import lk.ijse.model.AnimalsFoodModel;
 import lk.ijse.model.AnimalsMediModel;
+import lk.ijse.model.MedicineModel;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -40,8 +44,7 @@ public class AnimalMedicineController {
     @FXML
     private TextField txtQty;
 
-    @FXML
-    private TextField txtStatus;
+    private TableView <?> tbl;
 
     @FXML
     void btnClearOnAction(ActionEvent event) {clearFields();}
@@ -70,11 +73,10 @@ public class AnimalMedicineController {
             String mediId = cmbMediId.getValue();
             String animalId = cmbAnimalId.getValue();
             int qty = Integer.parseInt(txtQty.getText());
-            String status = txtStatus.getText();
-            LocalDate date = LocalDate.parse(lblDate.getText());
-            LocalDateTime time = LocalDateTime.parse(lblTime.getText());
+            Date date = Date.valueOf(lblDate.getText());
+            Time time = Time.valueOf(lblTime.getText());
 
-            var dto = new AnimalsMediDto(animalId,mediId,date,time,qty,status);
+            var dto = new AnimalsMediDto(animalId,mediId,date,time,qty);
 
             var model = new AnimalsMediModel();
             try {
@@ -98,18 +100,21 @@ public class AnimalMedicineController {
             String mediId = cmbMediId.getValue();
             String animalId = cmbAnimalId.getValue();
             int qty = Integer.parseInt(txtQty.getText());
-            String status = txtStatus.getText();
-            LocalDate date = LocalDate.parse(lblDate.getText());
-            LocalDateTime time = LocalDateTime.parse(lblTime.getText());
+            Date date = Date.valueOf(lblDate.getText());
+            Time time= Time.valueOf(lblTime.getText());
 
-            var dto = new AnimalsMediDto(animalId,mediId,date,time,qty,status);
+            var dto = new AnimalsMediDto(animalId,mediId,date,time,qty);
 
             var model = new AnimalsMediModel();
             try {
                 boolean isSaved = model.saveAnimalsMedi(dto);
                 if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Animal Food Saved!").show();
-                    clearFields();
+                    MedicineModel medicineModel = new MedicineModel();
+                    boolean isUpdateMedicine = medicineModel.updateStock(mediId,qty);
+                    if (isUpdateMedicine){
+                        new Alert(Alert.AlertType.CONFIRMATION, "Animal Food Saved!").show();
+                        tbl.refresh();
+                        clearFields();}
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -135,16 +140,8 @@ public class AnimalMedicineController {
         cmbAnimalId.setValue("");
         cmbMediId.setValue("");
         txtQty.clear();
-        txtStatus.clear();
     }
     private boolean validateAnimaMedi() {
-        String status = txtStatus.getText();
-        boolean isValid = Pattern.matches("([a-zA-Z\\s]+)", status);
-
-        if (!isValid){
-            new Alert(Alert.AlertType.ERROR, "Invalid status").show();
-            return false;
-        }
         String qty = (txtQty.getText());
         boolean isValidTel = Pattern.matches("(\\d{1,})", qty);
 
@@ -160,9 +157,9 @@ public class AnimalMedicineController {
 
         ObservableList<String> obListAni = FXCollections.observableArrayList();
         try {
-            List<AnimalsMediDto> list = AnimalsMediModel.getAllAnimal();
+            List<AnimalDto> list = AnimalModel.getAll();
 
-            for (AnimalsMediDto dto : list) {
+            for (AnimalDto dto : list) {
                 obListAni.add(dto.getAnimalTg());
             }
 
@@ -173,9 +170,9 @@ public class AnimalMedicineController {
 
         ObservableList<String> obListFd = FXCollections.observableArrayList();
         try {
-            List<AnimalsMediDto> list = AnimalsMediModel.getAll();
+            List<MedicineDto> list = MedicineModel.getAll();
 
-            for (AnimalsMediDto dto : list) {
+            for (MedicineDto dto : list) {
                 obListFd.add(dto.getMediId());
             }
 
@@ -183,5 +180,9 @@ public class AnimalMedicineController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void setData(TableView tbl) {
+        this.tbl=tbl;
     }
 }

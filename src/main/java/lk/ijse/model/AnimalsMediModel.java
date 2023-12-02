@@ -25,10 +25,9 @@ public class AnimalsMediModel {
             aniList.add(new AnimalsMediDto(
                     resultSet.getString("AnimalTg"),
                     resultSet.getString("ANimalMedi"),
-                    resultSet.getDate("Date").toLocalDate(),
-                    resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getInt("Qty"),
-                    resultSet.getString("Status")
+                    resultSet.getDate("Date"),
+                    resultSet.getTime("Time"),
+                    resultSet.getInt("Qty")
             ));
         }
         return aniList;
@@ -46,10 +45,9 @@ public class AnimalsMediModel {
             aniList.add(new AnimalsMediDto(
                     resultSet.getString("AnimalTg"),
                     resultSet.getString("MediId"),
-                    resultSet.getDate("Date").toLocalDate(),
-                    resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getInt("Qty"),
-                    resultSet.getString("Status")
+                    resultSet.getDate("Date"),
+                    resultSet.getTime("Time"),
+                    resultSet.getInt("Qty")
             ));
         }
         return aniList;
@@ -58,7 +56,7 @@ public class AnimalsMediModel {
     public boolean saveAnimalsMedi(AnimalsMediDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO AnimalFoods VALUES(?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO AnimalMedicine VALUES(?, ?, ?, ?, ?,?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getAnimalTg());
@@ -66,7 +64,6 @@ public class AnimalsMediModel {
         pstm.setString(3, String.valueOf(dto.getDate()));
         pstm.setString(4, String.valueOf(dto.getTime()));
         pstm.setString(5, String.valueOf(dto.getQty()));
-        pstm.setString(6,dto.getStatus());
 
         boolean isSaved = pstm.executeUpdate() > 0;
 
@@ -85,7 +82,6 @@ public class AnimalsMediModel {
         pstm.setString(2, String.valueOf(dto.getDate()));
         pstm.setString(3, String.valueOf(dto.getTime()));
         pstm.setString(4, String.valueOf(dto.getQty()));
-        pstm.setString(5, dto.getStatus());
         pstm.setString(6, dto.getAnimalTg());
 
         return pstm.executeUpdate() > 0;

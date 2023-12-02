@@ -52,6 +52,8 @@ public class MedicineController {
     @FXML
     private TableView<MedicineTm> tblMedicine;
 
+    public static TableView tbl;
+
     @FXML
     private TextField txtMediName;
 
@@ -64,7 +66,10 @@ public class MedicineController {
 
     @FXML
     void btnAnimalMedi(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/AnimalMedicine.fxml"));
+        FXMLLoader loader=new FXMLLoader(this.getClass().getResource("/view/AnimalMedicine.fxml"));
+        Parent rootNode=loader.load();
+        AnimalMedicineController controller=loader.getController();
+        controller.setData(tbl);
         Scene scene = new Scene(rootNode);
 
         Stage stage = new Stage();
@@ -167,6 +172,7 @@ public class MedicineController {
         setCellValueFactory();
         loadAllMedicine();
         generateNextMediId();
+        tbl=tblMedicine;
     }
 
     private void generateNextMediId() {
@@ -224,7 +230,7 @@ public class MedicineController {
         try {
             boolean isDeleted = MedicineModel.deleteMedcine(code);
             if(isDeleted)
-                new Alert(Alert.AlertType.CONFIRMATION, "FOod deleted!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Medicine deleted!").show();
         } catch (SQLException ex) {
             new Alert(Alert.AlertType.ERROR, ex.getMessage()).show();
         }

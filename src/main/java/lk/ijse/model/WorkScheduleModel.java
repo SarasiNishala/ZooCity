@@ -77,7 +77,7 @@ public class WorkScheduleModel {
         return isSaved;
     }
 
-    public List<WorkScheduleDto> getAll() throws SQLException {
+    public static List<WorkScheduleDto> getAll() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM Schedule";

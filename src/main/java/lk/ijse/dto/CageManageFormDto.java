@@ -15,5 +15,4 @@ public class CageManageFormDto {
     private String CageId;
     private LocalDate Date;
     private LocalDateTime Time;
-    private String Status;
 }

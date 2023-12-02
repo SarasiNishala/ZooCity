@@ -1,8 +1,8 @@
 package lk.ijse.dto;
 import lombok.*;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 
 public class EmployeeDto {

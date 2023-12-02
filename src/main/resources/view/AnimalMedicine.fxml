@@ -29,30 +29,24 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <TextField fx:id="txtQty" layoutX="64.0" layoutY="421.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-radius: 5;" />
-      <Text layoutX="64.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty">
+      <TextField fx:id="txtQty" layoutX="205.0" layoutY="421.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-radius: 5;" />
+      <Text layoutX="205.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="331.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+      <Text layoutX="331.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="332.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+      <Text layoutX="332.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Label fx:id="lblDate" layoutX="331.0" layoutY="311.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
-      <Label fx:id="lblTime" layoutX="332.0" layoutY="419.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
-      <TextField fx:id="txtStatus" layoutX="328.0" layoutY="203.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-radius: 5;" />
-      <Text layoutX="328.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
+      <Label fx:id="lblDate" layoutX="331.0" layoutY="204.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+      <Label fx:id="lblTime" layoutX="332.0" layoutY="312.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
       <ComboBox fx:id="cmbAnimalId" editable="true" layoutX="59.0" layoutY="205.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-radius: 5;" />
       <ComboBox fx:id="cmbMediId" editable="true" layoutX="59.0" layoutY="310.0" prefHeight="30.0" prefWidth="204.0" style="-fx-background-radius: 5;" />
    </children>

@@ -10,17 +10,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="660.0" prefWidth="992.0" style="-fx-background-color: transpranet;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MedicineController">
+<AnchorPane fx:id="root" prefHeight="698.0" prefWidth="992.0" style="-fx-background-color: transpranet;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MedicineController">
    <children>
-      <ImageView fitHeight="229.0" fitWidth="231.0" layoutX="736.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="229.0" fitWidth="231.0" layoutX="736.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assets/medicine Stock.png" />
          </image>
       </ImageView>
-      <Text layoutX="43.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Id" />
-      <TextField fx:id="txtMediName" layoutX="271.0" layoutY="47.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter Nmae" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Text layoutX="43.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Id" />
+      <TextField fx:id="txtMediName" layoutX="271.0" layoutY="89.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter Nmae" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.45" width="0.0">
                <color>
@@ -28,8 +29,8 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <Text layoutX="273.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Name" />
-      <TextField fx:id="txtMediPrice" layoutX="495.0" layoutY="48.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter Price" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Text layoutX="273.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine Name" />
+      <TextField fx:id="txtMediPrice" layoutX="495.0" layoutY="90.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter Price" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.45" width="0.0">
                <color>
@@ -37,8 +38,8 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <Text layoutX="497.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
-      <TextField fx:id="txtQty" layoutX="41.0" layoutY="138.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter qty" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Text layoutX="497.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" />
+      <TextField fx:id="txtQty" layoutX="41.0" layoutY="180.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter qty" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.45" width="0.0">
                <color>
@@ -46,12 +47,12 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <Text layoutX="43.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty On Hand" />
-      <Text layoutX="273.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
-      <Button layoutX="482.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
-      <Button layoutX="593.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
-      <Button layoutX="707.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
-      <TableView fx:id="tblMedicine" layoutX="43.0" layoutY="200.0" prefHeight="404.0" prefWidth="910.0" style="-fx-background-color: #F3F0F0;">
+      <Text layoutX="43.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty On Hand" />
+      <Text layoutX="273.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+      <Button layoutX="482.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
+      <Button layoutX="593.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
+      <Button layoutX="707.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
+      <TableView fx:id="tblMedicine" layoutX="43.0" layoutY="242.0" prefHeight="404.0" prefWidth="910.0" style="-fx-background-color: #F3F0F0;" stylesheets="@../Style/Table.css">
          <columns>
             <TableColumn fx:id="colMedicineId" prefWidth="130.0" text="Medicine Id" />
             <TableColumn fx:id="colMedicineName" prefWidth="130.0" text="Medicine Name" />
@@ -61,8 +62,8 @@
             <TableColumn fx:id="colAction" prefWidth="150.0" text="Action" />
          </columns>
       </TableView>
-      <Button layoutX="819.0" layoutY="615.0" mnemonicParsing="false" onAction="#btnAnimalMedi" prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: #E7A569; -fx-background-radius: 5;" text="Animals Medicine" />
-      <Label fx:id="lblMediId" layoutX="41.0" layoutY="47.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Button layoutX="819.0" layoutY="657.0" mnemonicParsing="false" onAction="#btnAnimalMedi" prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: #E7A569; -fx-background-radius: 5;" text="Animals Medicine" />
+      <Label fx:id="lblMediId" layoutX="41.0" layoutY="89.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="6.05" offsetX="2.0" offsetY="2.0" radius="4.0375" width="12.1">
                <color>
@@ -71,7 +72,7 @@
             </DropShadow>
          </effect>
       </Label>
-      <Label fx:id="lblStatus" layoutX="268.0" layoutY="139.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Label fx:id="lblStatus" layoutX="268.0" layoutY="181.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="6.05" offsetX="2.0" offsetY="2.0" radius="4.0375" width="12.1">
                <color>
@@ -80,5 +81,10 @@
             </DropShadow>
          </effect>
       </Label>
+      <Text layoutX="420.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

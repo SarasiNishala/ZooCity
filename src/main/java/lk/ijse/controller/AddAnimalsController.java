@@ -12,9 +12,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.AnimalDto;
+import lk.ijse.dto.CageDto;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.Tm.AnimalTm;
 import lk.ijse.model.AnimalModel;
+import lk.ijse.model.CageModel;
 import lk.ijse.model.EmployeeModel;
 
 import java.io.IOException;
@@ -154,9 +156,9 @@ public class AddAnimalsController {
 
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
-            List<AnimalDto> list = AnimalModel.getAll();
+            List<CageDto> list = CageModel.getAll();
 
-            for (AnimalDto dto : list) {
+            for (CageDto dto : list) {
                 obList.add(dto.getCageId());
             }
 

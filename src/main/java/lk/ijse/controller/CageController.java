@@ -4,14 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.ijse.dto.CageDto;
 import lk.ijse.dto.Tm.CageTm;
 import lk.ijse.model.CageModel;
 import lk.ijse.model.MedicineModel;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +48,16 @@ public class CageController {
     private TextField txtNo;
 
     @FXML
-    void btnCageControl(ActionEvent event) {
+    void btnCageControl(ActionEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/CageManageForm.fxml"));
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.centerOnScreen();
+
+        stage.show();
 
     }
 
@@ -130,8 +144,8 @@ public class CageController {
         generateNextCageId();
 
         colCageId.setCellValueFactory(new PropertyValueFactory<>("CageId"));
-        colCageType.setCellValueFactory(new PropertyValueFactory<>("CageTYpe"));
-        colAnimalNo.setCellValueFactory(new PropertyValueFactory<>("NoOfAnimals"));
+        colCageType.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        colAnimalNo.setCellValueFactory(new PropertyValueFactory<>("NoOfANimals"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 
@@ -213,4 +227,6 @@ public class CageController {
             throw new RuntimeException(e);
         }
     }
+
+
 }

@@ -10,11 +10,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" prefHeight="660.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddAnimalsController">
+<AnchorPane fx:id="root" prefHeight="698.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddAnimalsController">
    <children>
-      <TextField fx:id="txtAniTg" layoutX="43.0" layoutY="63.0" onAction="#txtSearchOnAction" prefHeight="35.0" prefWidth="195.0" promptText="Enter Tag" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <TextField fx:id="txtAniTg" layoutX="43.0" layoutY="115.0" onAction="#txtSearchOnAction" prefHeight="35.0" prefWidth="195.0" promptText="Enter Tag" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="1.0" offsetX="2.0" offsetY="2.0" radius="0.0" spread="0.27" width="0.0">
                <color>
@@ -22,11 +23,11 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <Text layoutX="45.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Animal Tag" />
-      <Text layoutX="277.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Category" />
-      <Text layoutX="502.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Type" />
-      <Text layoutX="50.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cage Id" />
-      <TextField fx:id="txtType" layoutX="498.0" layoutY="62.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter Type" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <Text layoutX="45.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Animal Tag" />
+      <Text layoutX="277.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Category" />
+      <Text layoutX="502.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Type" />
+      <Text layoutX="50.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cage Id" />
+      <TextField fx:id="txtType" layoutX="498.0" layoutY="114.0" prefHeight="35.0" prefWidth="195.0" promptText="Enter Type" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="9.14" offsetX="2.0" offsetY="2.0" radius="1.7850000000000001" spread="0.26" width="0.0">
                <color>
@@ -34,7 +35,7 @@
                </color>
             </DropShadow>
          </effect></TextField>
-      <ComboBox fx:id="cmbCategory" layoutX="274.0" layoutY="62.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <ComboBox fx:id="cmbCategory" layoutX="274.0" layoutY="114.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="12.1" offsetX="2.0" offsetY="2.0" radius="2.525" spread="0.23" width="0.0">
                <color>
@@ -42,10 +43,10 @@
                </color>
             </DropShadow>
          </effect></ComboBox>
-      <Button layoutX="271.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
-      <Button layoutX="374.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
-      <Button layoutX="482.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
-      <TableView fx:id="tblAnimal" layoutX="41.0" layoutY="222.0" prefHeight="404.0" prefWidth="910.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
+      <Button layoutX="271.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
+      <Button layoutX="374.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
+      <Button layoutX="482.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="90.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
+      <TableView fx:id="tblAnimal" layoutX="41.0" layoutY="274.0" prefHeight="404.0" prefWidth="910.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;" stylesheets="@../Style/Table.css">
          <columns>
             <TableColumn fx:id="colAnimalTg" prefWidth="130.0" text="Animal Tg" />
             <TableColumn fx:id="colCategory" prefWidth="130.0" text="Category" />
@@ -55,12 +56,12 @@
             <TableColumn fx:id="colAction" prefWidth="150.0" text="Action" />
          </columns>
       </TableView>
-      <ImageView fitHeight="196.0" fitWidth="273.0" layoutX="704.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="196.0" fitWidth="273.0" layoutX="704.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Assets/lion.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="cmbCageId" layoutX="45.0" layoutY="151.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
+      <ComboBox fx:id="cmbCageId" layoutX="45.0" layoutY="203.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="12.1" offsetX="2.0" offsetY="2.0" radius="2.525" spread="0.23" width="0.0">
                <color>
@@ -69,5 +70,10 @@
             </DropShadow>
          </effect>
       </ComboBox>
+      <Text layoutX="431.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animals">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

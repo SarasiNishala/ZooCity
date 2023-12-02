@@ -26,8 +26,7 @@ public class CageManageFormModel {
                     resultSet.getString("EmpId"),
                     resultSet.getString("CageId"),
                     resultSet.getDate("Date").toLocalDate(),
-                    resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getString("Status")
+                    resultSet.getTimestamp("Time").toLocalDateTime()
             ));
         }
         return aniList;
@@ -46,8 +45,7 @@ public class CageManageFormModel {
                     resultSet.getString("EmpId"),
                     resultSet.getString("CageId"),
                     resultSet.getDate("Date").toLocalDate(),
-                    resultSet.getTimestamp("Time").toLocalDateTime(),
-                    resultSet.getString("Status")
+                    resultSet.getTimestamp("Time").toLocalDateTime()
             ));
         }
         return aniList;
@@ -63,7 +61,6 @@ public class CageManageFormModel {
         pstm.setString(2, dto.getCageId());
         pstm.setString(3, String.valueOf(dto.getDate()));
         pstm.setString(4, String.valueOf(dto.getTime()));
-        pstm.setString(6,dto.getStatus());
 
         boolean isSaved = pstm.executeUpdate() > 0;
 
@@ -80,7 +77,6 @@ public class CageManageFormModel {
         pstm.setString(1, dto.getCageId());
         pstm.setString(2, String.valueOf(dto.getDate()));
         pstm.setString(3, String.valueOf(dto.getTime()));
-        pstm.setString(5, dto.getStatus());
         pstm.setString(6, dto.getEmpId());
 
         return pstm.executeUpdate() > 0;

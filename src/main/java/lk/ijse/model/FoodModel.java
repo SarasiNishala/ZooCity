@@ -100,4 +100,18 @@ public class FoodModel {
         }
         return aniList;
     }
+
+    public boolean updateStock(String foodId, int qty) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "UPDATE Food SET Qty = Qty-? WHERE FoodId = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, String.valueOf(qty));
+        pstm.setString(2, foodId);
+
+        boolean isSaved = pstm.executeUpdate() > 0;
+
+        return isSaved;
+    }
 }

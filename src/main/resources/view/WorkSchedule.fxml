@@ -20,7 +20,7 @@
             <Image url="@../Assets/workSchedule.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tblWorkSchedule" layoutX="96.0" layoutY="241.0" prefHeight="412.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;">
+      <TableView fx:id="tblWorkSchedule" layoutX="96.0" layoutY="241.0" prefHeight="412.0" prefWidth="822.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 10;" stylesheets="@../Style/Table.css">
          <columns>
             <TableColumn fx:id="colScheduleId" prefWidth="157.0" text="Schedule Id" />
             <TableColumn fx:id="colHours" prefWidth="234.0" text="Hours" />

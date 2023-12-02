@@ -36,10 +36,9 @@ public class CageManageFormController {
     private Label lblTime;
 
     @FXML
-    private TextField txtStatus;
-
-    @FXML
-    void btnClearOnAction(ActionEvent event) {clearFields();}
+    void btnClearOnAction(ActionEvent event) {
+        clearFields();
+    }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -49,7 +48,7 @@ public class CageManageFormController {
         try {
             boolean isDeleted = cageControllForm.deleteCageForm(id);
 
-            if(isDeleted) {
+            if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "deleted!").show();
             }
         } catch (SQLException e) {
@@ -60,63 +59,56 @@ public class CageManageFormController {
 
     @FXML
     void btnEditOnAction(ActionEvent event) {
-        boolean b = validateCageControllForm();
-        if (b){
-            String empId = cmbEmployeeId.getValue();
-            String cageId = cmbCageId.getValue();
-            LocalDate date = LocalDate.parse(lblDate.getText());
-            LocalDateTime time = LocalDateTime.parse(lblTime.getText());
-            String status = txtStatus.getText();
 
-            var dto = new CageManageFormDto(empId,cageId,date,time,status);
+        String empId = cmbEmployeeId.getValue();
+        String cageId = cmbCageId.getValue();
+        LocalDate date = LocalDate.parse(lblDate.getText());
+        LocalDateTime time = LocalDateTime.parse(lblTime.getText());
 
-            var model = new CageManageFormModel();
-            try {
-                boolean isSaved = model.editCageControlForm(dto);
-                if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, " Updated!").show();
-                    clearFields();
-                }
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        var dto = new CageManageFormDto(empId, cageId, date, time);
+
+        var model = new CageManageFormModel();
+        try {
+            boolean isSaved = model.editCageControlForm(dto);
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, " Updated!").show();
+                clearFields();
             }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        boolean b = validateCageControllForm();
 
-        if(b){
-            String empId = cmbEmployeeId.getValue();
-            String cageId = cmbCageId.getValue();
-            LocalDate date = LocalDate.parse(lblDate.getText());
-            LocalDateTime time = LocalDateTime.parse(lblTime.getText());
-            String status = txtStatus.getText();
+        String empId = cmbEmployeeId.getValue();
+        String cageId = cmbCageId.getValue();
+        LocalDate date = LocalDate.parse(lblDate.getText());
+        LocalDateTime time = LocalDateTime.parse(lblTime.getText());
 
-            var dto = new CageManageFormDto(empId,cageId,date,time,status);
+        var dto = new CageManageFormDto(empId, cageId, date, time);
 
-            var model = new CageManageFormModel();
-            try {
-                boolean isSaved = model.saveCageForm(dto);
-                if (isSaved) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
-                    clearFields();
-                }
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        var model = new CageManageFormModel();
+        try {
+            boolean isSaved = model.saveCageForm(dto);
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved!").show();
+                clearFields();
             }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
     }
+
     void clearFields() {
         cmbEmployeeId.setValue("");
         cmbCageId.setValue("");
-        txtStatus.clear();
     }
 
-    public  void setComboBox(){
+    public void setComboBox() {
 
         ObservableList<String> obListEmp = FXCollections.observableArrayList();
         try {
@@ -144,6 +136,7 @@ public class CageManageFormController {
             throw new RuntimeException(e);
         }
     }
+
     public void initialize() {
         generateRealTime();
         setComboBox();
@@ -159,15 +152,6 @@ public class CageManageFormController {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
-
-    private boolean validateCageControllForm() {
-        String status = txtStatus.getText();
-        boolean isValid = Pattern.matches("([a-zA-Z\\s]+)", status);
-
-        if (!isValid){
-            new Alert(Alert.AlertType.ERROR, "Invalid status").show();
-            return false;
-        }
-        return true;
-    }
 }
+
+
