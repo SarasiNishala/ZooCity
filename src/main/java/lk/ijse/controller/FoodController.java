@@ -55,8 +55,6 @@ public class FoodController {
     @FXML
     private TableColumn<?, ?> colQty;
 
-    @FXML
-    private TableColumn<?, ?> colStatus;
 
     @FXML
     void btnClearOnAction(ActionEvent event) {clearFields();}
@@ -69,9 +67,8 @@ public class FoodController {
             String foodName = txtFoodName.getText();
             double price = Double.parseDouble(txtPrice.getText());
             int qty = Integer.parseInt(txtQty.getText());
-            String status = lblStatus.getText();
 
-            var dto = new FoodDto(id,foodName,price,qty,status);
+            var dto = new FoodDto(id,foodName,price,qty);
 
             var model = new FoodModel();
             try {
@@ -95,9 +92,8 @@ public class FoodController {
             String foodName = txtFoodName.getText();
             double price = Double.parseDouble(txtPrice.getText());
             int qty = Integer.parseInt(txtQty.getText());
-            String status = lblStatus.getText();
 
-            var dto = new FoodDto(id,foodName,price,qty,status);
+            var dto = new FoodDto(id,foodName,price,qty);
 
             var model = new FoodModel();
             try {
@@ -144,7 +140,6 @@ public class FoodController {
         txtFoodName.clear();
         txtPrice.clear();
         txtQty.clear();
-        lblStatus.setText("");
     }
     private void generateNextFoodId() {
         try {
@@ -192,7 +187,6 @@ public class FoodController {
                         dto.getName(),
                         dto.getPrice(),
                         dto.getQty(),
-                        dto.getStockStatus(),
                         btn
                 );
                 obList.add(tm);
@@ -218,7 +212,6 @@ public class FoodController {
         colFoodName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("StockStatus"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 

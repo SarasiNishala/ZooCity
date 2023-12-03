@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
+import lk.ijse.db.DbConnection;
 import lk.ijse.dto.AnimalDto;
 import lk.ijse.dto.AnimalsFoodDto;
 import lk.ijse.dto.FoodDto;
@@ -20,6 +21,7 @@ import lk.ijse.model.AnimalsFoodModel;
 import lk.ijse.model.FoodModel;
 import lk.ijse.model.MedicineModel;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -94,7 +96,7 @@ public class AnimalFoodsController {
     }
 
     @FXML
-    void btnEditOnAction(ActionEvent event) {
+    void btnEditOnAction(ActionEvent event) throws SQLException {
         boolean b = validateAnimalFood();
         if (b){
             String foodId = cmbFoodId.getValue();
@@ -106,16 +108,26 @@ public class AnimalFoodsController {
             var dto = new AnimalsFoodDto(animalId,foodId,date,time,qty);
 
             var model = new AnimalsFoodModel();
+            Connection connection = null;
             try {
+                connection = DbConnection.getInstance().getConnection();
+                connection.setAutoCommit(false);
+
                 boolean isSaved = model.editANimalsFood(dto);
                 if (isSaved) {
                     FoodModel foodModel = new FoodModel();
                     boolean isUpdateFood = foodModel.updateStock(foodId,qty);
-                    new Alert(Alert.AlertType.CONFIRMATION, "Animals Food Updated!").show();
-                    clearFields();
+                    if (isUpdateFood) {
+                        connection.commit();
+                        new Alert(Alert.AlertType.CONFIRMATION, "Animals Food Updated!").show();
+                        clearFields();
+                    }
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                connection.rollback();
+            }finally {
+                connection.setAutoCommit(true);
             }
         }
     }

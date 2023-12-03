@@ -40,8 +40,6 @@ public class MedicineController {
     @FXML
     private TableColumn<?, ?> colQty;
 
-    @FXML
-    private TableColumn<?, ?> colStatus;
 
     @FXML
     private Label lblMediId;
@@ -91,9 +89,8 @@ public class MedicineController {
             String foodName = txtMediName.getText();
             double price = Double.parseDouble(txtMediPrice.getText());
             int qty = Integer.parseInt(txtQty.getText());
-            String status = lblStatus.getText();
 
-            var dto = new MedicineDto(id,foodName,price,qty,status);
+            var dto = new MedicineDto(id,foodName,price,qty);
 
             var model = new MedicineModel();
             try {
@@ -119,7 +116,7 @@ public class MedicineController {
             int qty = Integer.parseInt(txtQty.getText());
             String status = lblStatus.getText();
 
-            var dto = new MedicineDto(id,mediName,price,qty,status);
+            var dto = new MedicineDto(id,mediName,price,qty);
 
             var model = new MedicineModel();
             try {
@@ -139,7 +136,6 @@ public class MedicineController {
         txtMediName.clear();
         txtMediPrice.clear();
         txtQty.clear();
-        lblStatus.setText("");
     }
     private boolean validateMedicine() {
         String name = txtMediName.getText();
@@ -216,7 +212,6 @@ public class MedicineController {
                         dto.getName(),
                         dto.getPrice(),
                         dto.getQty(),
-                        dto.getStockStatus(),
                         btn
                 );
                 obList.add(tm);
@@ -241,7 +236,6 @@ public class MedicineController {
         colMedicineName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("Qty"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("StockStatus"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 

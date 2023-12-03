@@ -75,8 +75,7 @@ CREATE TABLE Food(
 	FoodId VARCHAR(6) PRIMARY KEY,
 	Name VARCHAR(30),
 	Price DOUBLE,
-	Qty INT,
-	StockStatus VARCHAR(10)
+	Qty INT
 );
 
 CREATE TABLE AnimalFoods(
@@ -93,8 +92,7 @@ CREATE TABLE Medicine(
 	MediId VARCHAR(6) PRIMARY KEY,
 	Name VARCHAR(30),
 	Price DOUBLE,
-	Qty INT,
-	StockStatus VARCHAR(10)
+	Qty INT
 );
 
 CREATE TABLE AnimalMedicine(
@@ -119,7 +117,6 @@ DESC Food;
 DESC Medicine;
 DESC Salary;
 DESC Schedule;
-DESC Income;
 DESC Ticket;
 
 INSERT INTO Admin VALUES ('A001','Nishala','@1234');

@@ -57,7 +57,6 @@ public class FoodModel {
         pstm.setString(2, dto.getName());
         pstm.setString(3, String.valueOf(dto.getPrice()));
         pstm.setString(4, String.valueOf(dto.getQty()));
-        pstm.setString(5,dto.getStockStatus());
 
         boolean isSaved = pstm.executeUpdate() > 0;
 
@@ -73,7 +72,6 @@ public class FoodModel {
         pstm.setString(1, dto.getName());
         pstm.setString(2, String.valueOf(dto.getPrice()));
         pstm.setString(3, String.valueOf(dto.getQty()));
-        pstm.setString(4,dto.getStockStatus());
         pstm.setString(5, dto.getFoodId());
 
         boolean isSaved = pstm.executeUpdate() > 0;
@@ -94,8 +92,7 @@ public class FoodModel {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     Double.parseDouble(resultSet.getString(3)),
-                    Integer.parseInt(resultSet.getString(4)),
-                    resultSet.getString(5)
+                    Integer.parseInt(resultSet.getString(4))
             ));
         }
         return aniList;

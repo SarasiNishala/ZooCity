@@ -12,5 +12,4 @@ public class MedicineDto {
     private String Name;
     private double Price;
     private int Qty;
-    private String StockStatus;
 }

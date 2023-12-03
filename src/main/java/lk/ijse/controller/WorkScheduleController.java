@@ -108,7 +108,7 @@ public class WorkScheduleController {
     @FXML
     void btnReportOnAction(ActionEvent event) {
         try {
-            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Reprts/");
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Reprts/Schedule.jrxml");
             JRDesignQuery query = new JRDesignQuery();
             query.setText("SELECT * FROM Schedule");
             jasperDesign.setQuery(query);

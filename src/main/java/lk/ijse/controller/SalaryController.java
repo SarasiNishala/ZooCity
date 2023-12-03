@@ -100,7 +100,7 @@ public class SalaryController {
 
     public void btnReportOnAction(ActionEvent actionEvent) {
         try {
-            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Reprts/");
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Reprts/SalaryEmp.jrxml");
             JRDesignQuery query = new JRDesignQuery();
             query.setText("SELECT * FROM Salary");
             jasperDesign.setQuery(query);
@@ -128,6 +128,7 @@ public class SalaryController {
         loadAllSalary();
         generateNextSalaryId();
         setListener();
+        setCellValueFactory();
     }
 
     private void setComboBox() {

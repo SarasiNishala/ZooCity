@@ -48,31 +48,20 @@
             </DropShadow>
          </effect></TextField>
       <Text layoutX="43.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty On Hand" />
-      <Text layoutX="273.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
-      <Button layoutX="482.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
-      <Button layoutX="593.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
-      <Button layoutX="707.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
+      <Button layoutX="279.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #88ABDF;" text="Save" />
+      <Button layoutX="390.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #7ACC9E;" text="Edit" />
+      <Button layoutX="504.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-radius: 5; -fx-background-color: #DF8888;" text="Clear" />
       <TableView fx:id="tblMedicine" layoutX="43.0" layoutY="242.0" prefHeight="404.0" prefWidth="910.0" style="-fx-background-color: #F3F0F0;" stylesheets="@../Style/Table.css">
          <columns>
-            <TableColumn fx:id="colMedicineId" prefWidth="130.0" text="Medicine Id" />
-            <TableColumn fx:id="colMedicineName" prefWidth="130.0" text="Medicine Name" />
-            <TableColumn fx:id="colPrice" prefWidth="165.0" text="Price" />
-            <TableColumn fx:id="colQty" prefWidth="156.0" text="Qty" />
-            <TableColumn fx:id="colStatus" prefWidth="178.0" text="Status" />
-            <TableColumn fx:id="colAction" prefWidth="150.0" text="Action" />
+            <TableColumn fx:id="colMedicineId" prefWidth="169.0" text="Medicine Id" />
+            <TableColumn fx:id="colMedicineName" prefWidth="229.0" text="Medicine Name" />
+            <TableColumn fx:id="colPrice" prefWidth="146.0" text="Price" />
+            <TableColumn fx:id="colQty" prefWidth="168.0" text="Qty" />
+            <TableColumn fx:id="colAction" prefWidth="197.0" text="Action" />
          </columns>
       </TableView>
       <Button layoutX="819.0" layoutY="657.0" mnemonicParsing="false" onAction="#btnAnimalMedi" prefHeight="35.0" prefWidth="136.0" style="-fx-background-color: #E7A569; -fx-background-radius: 5;" text="Animals Medicine" />
       <Label fx:id="lblMediId" layoutX="41.0" layoutY="89.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
-         <effect>
-            <DropShadow height="6.05" offsetX="2.0" offsetY="2.0" radius="4.0375" width="12.1">
-               <color>
-                  <Color opacity="0.23000000417232513" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Label>
-      <Label fx:id="lblStatus" layoutX="268.0" layoutY="181.0" prefHeight="35.0" prefWidth="195.0" style="-fx-background-color: #F3F0F0; -fx-background-radius: 5;">
          <effect>
             <DropShadow height="6.05" offsetX="2.0" offsetY="2.0" radius="4.0375" width="12.1">
                <color>

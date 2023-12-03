@@ -70,7 +70,6 @@ public class MedicineModel {
         pstm.setString(2, dto.getName());
         pstm.setString(3, String.valueOf(dto.getPrice()));
         pstm.setString(4, String.valueOf(dto.getQty()));
-        pstm.setString(5,dto.getStockStatus());
 
         boolean isSaved = pstm.executeUpdate() > 0;
 
@@ -86,7 +85,6 @@ public class MedicineModel {
         pstm.setString(1, dto.getName());
         pstm.setString(2, String.valueOf(dto.getPrice()));
         pstm.setString(3, String.valueOf(dto.getQty()));
-        pstm.setString(4,dto.getStockStatus());
         pstm.setString(5, dto.getMediId());
 
         boolean isSaved = pstm.executeUpdate() > 0;
@@ -107,8 +105,7 @@ public class MedicineModel {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     Double.parseDouble(resultSet.getString(3)),
-                    Integer.parseInt(resultSet.getString(4)),
-                    resultSet.getString(5)
+                    Integer.parseInt(resultSet.getString(4))
             ));
         }
         return aniList;
