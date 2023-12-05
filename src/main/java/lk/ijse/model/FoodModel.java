@@ -50,7 +50,7 @@ public class FoodModel {
     public boolean saveFood(FoodDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO Food VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Food VALUES(?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getFoodId());

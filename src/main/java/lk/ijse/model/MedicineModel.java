@@ -63,7 +63,7 @@ public class MedicineModel {
     public boolean saveMedicine(MedicineDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO Medicine VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Medicine VALUES(?, ?, ?, ?)";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getMediId());

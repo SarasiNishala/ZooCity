@@ -114,7 +114,6 @@ public class MedicineController {
             String mediName = txtMediName.getText();
             double price = Double.parseDouble(txtMediPrice.getText());
             int qty = Integer.parseInt(txtQty.getText());
-            String status = lblStatus.getText();
 
             var dto = new MedicineDto(id,mediName,price,qty);
 

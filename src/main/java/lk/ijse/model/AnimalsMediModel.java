@@ -75,7 +75,7 @@ public class AnimalsMediModel {
         Connection connection = null;
         connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE AnimalFood SET MediId = ?, Date = ?, Time = ?, Qty = ?, Status = ? WHERE AnimalTg = ?";
+        String sql = "UPDATE AnimalFood SET MediId = ?, Date = ?, Time = ?, Qty = ? WHERE AnimalTg = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         pstm.setString(1, dto.getMediId());
